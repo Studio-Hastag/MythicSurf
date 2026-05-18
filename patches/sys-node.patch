@@ -1,0 +1,12 @@
+Index: chromium-99.0.4844.51/third_party/node/node.py
+===================================================================
+--- chromium-99.0.4844.51.orig/third_party/node/node.py
++++ chromium-99.0.4844.51/third_party/node/node.py
+@@ -11,6 +11,7 @@ import os
+ 
+ 
+ def GetBinaryPath():
++  return "/usr/bin/node"
+   darwin_name = ('node-darwin-arm64' if platform.machine() == 'arm64' else
+                  'node-darwin-x64')
+   return os_path.join(os_path.dirname(__file__), *{

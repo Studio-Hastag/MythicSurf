@@ -1,0 +1,50 @@
+Description: Partially revert https://chromium.googlesource.com/chromium/src/+/029d4b6 because we're not building from a git checkout, so DownloadPinnedClang() cannot work
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+Forwarded: not-needed
+
+--- a/tools/clang/scripts/build.py
++++ b/tools/clang/scripts/build.py
+@@ -718,7 +718,6 @@ def main():
+     cc = args.host_cc
+     cxx = args.host_cxx
+   else:
+-    DownloadPinnedClang()
+     if sys.platform == 'win32':
+       cc = os.path.join(PINNED_CLANG_DIR, 'bin', 'clang-cl.exe')
+       cxx = os.path.join(PINNED_CLANG_DIR, 'bin', 'clang-cl.exe')
+@@ -729,8 +728,8 @@ def main():
+       cxx = cxx.replace('\\', '/')
+       lld = lld.replace('\\', '/')
+     else:
+-      cc = os.path.join(PINNED_CLANG_DIR, 'bin', 'clang')
+-      cxx = os.path.join(PINNED_CLANG_DIR, 'bin', 'clang++')
++      cc = os.path.join(args.gcc_toolchain, 'bin', 'gcc')
++      cxx = os.path.join(args.gcc_toolchain, 'bin', 'g++')
+ 
+     if sys.platform.startswith('linux'):
+       MaybeDownloadHostGcc(args)
+@@ -740,7 +739,7 @@ def main():
+     # The host clang has lld, but self-hosting with lld is still slightly
+     # broken on mac.
+     # TODO: check if this works now.
+-    base_cmake_args.append('-DLLVM_ENABLE_LLD=ON')
++    pass
+ 
+   if sys.platform == 'darwin':
+     # For libc++, we only want the headers.
+@@ -897,6 +896,14 @@ def main():
+     else:
+       cc = os.path.join(LLVM_BOOTSTRAP_INSTALL_DIR, 'bin', 'clang')
+       cxx = os.path.join(LLVM_BOOTSTRAP_INSTALL_DIR, 'bin', 'clang++')
++    if sys.platform.startswith('linux'):
++      base_cmake_args.append('-DLLVM_ENABLE_LLD=ON')
++
++    if args.gcc_toolchain:
++      # Tell the bootstrap compiler where to find the standard library headers
++      # and shared object files.
++      cflags.append('--gcc-toolchain=' + args.gcc_toolchain)
++      cxxflags.append('--gcc-toolchain=' + args.gcc_toolchain)
+ 
+     print('Bootstrap compiler installed.')
+ 
+

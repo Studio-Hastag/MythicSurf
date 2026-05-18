@@ -1,0 +1,54 @@
+Description: Fix the usage of DRI_DRIVER_DIR variable.
+ .
+ The build configuration for minigbm was lacking the dri config.
+ This causes DRI_DRIVER_DIR to be undefined.
+ In addition, when the dri config is properly included, the
+ definition will include the quotation marks, making the
+ STRINGIZE step unnecessary.
+ To find the correct directory in the snap, we now prefix
+ DRI_DRIVER_DIR with /snap/chromium/current/gnome-platform
+Forwarded: not-yet
+Author: Bram Stolk <bram.stolk@canonical.com>
+Ubuntu-bug: https://launchpad.net/bugs/2004586
+Ubuntu-bug: https://launchpad.net/bugs/2006646
+
+diff -u src/third_party/minigbm/BUILD.gn src2/third_party/minigbm/BUILD.gn
+--- src/third_party/minigbm/BUILD.gn    2023-02-22 10:11:45.378628381 -0800
++++ src2/third_party/minigbm/BUILD.gn   2023-02-08 10:48:28.479158349 -0800
+@@ -80,6 +80,7 @@
+
+     configs -= [ "//build/config/compiler:chromium_code" ]
+     configs += [ "//build/config/compiler:no_chromium_code" ]
++    configs += [ "//build/config/linux/dri" ]
+
+     deps = [ "//build/config/linux/libdrm" ]
+     public_configs = [ ":minigbm_config" ]
+diff -u src/third_party/minigbm/src/amdgpu.c src2/third_party/minigbm/src/amdgpu.c
+--- src/third_party/minigbm/src/amdgpu.c
++++ src2/third_party/minigbm/src/amdgpu.c
+@@ -23,9 +23,11 @@
+ #include "drv_priv.h"
+ #include "util.h"
+ 
+-// clang-format off
+-#define DRI_PATH STRINGIZE(DRI_DRIVER_DIR/radeonsi_dri.so)
+-// clang-format on
++#if !defined(DRI_DRIVER_DIR)
++#	error "DRI_DRIVER_DIR is not defined."
++#else
++#	define DRI_PATH DRI_DRIVER_DIR "/radeonsi_dri.so"
++#endif
+ 
+ #define TILE_TYPE_LINEAR 0
+ /* We decide a modifier and then use DRI to manage allocation */
+diff --git src/build/config/linux/dri/BUILD.gn src2/build/config/linux/dri/BUILD.gn
+index e3a0a83..6e0f7ee 100644
+--- src/build/config/linux/dri/BUILD.gn
++++ src2/build/config/linux/dri/BUILD.gn
+@@ -14,5 +14,5 @@ pkg_config("dri") {
+                                      "dri",
+                                    ],
+                                "string")
+-  defines = [ "DRI_DRIVER_DIR=\"$dri_driver_dir\"" ]
++  defines = [ "DRI_DRIVER_DIR=\"/snap/chromium/current/gnome-platform$dri_driver_dir\"" ]
+ }

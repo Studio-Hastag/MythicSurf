@@ -1,0 +1,17 @@
+Description: do not build unused clang tools
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+Forwarded: not-needed
+
+Index: chromium-113.0.5672.126/tools/clang/scripts/build.py
+===================================================================
+--- chromium-113.0.5672.126.orig/tools/clang/scripts/build.py
++++ chromium-113.0.5672.126/tools/clang/scripts/build.py
+@@ -683,7 +683,7 @@ def main():
+   ldflags = []
+ 
+   targets = 'AArch64;ARM;LoongArch;Mips;PowerPC;RISCV;SystemZ;WebAssembly;X86'
+-  projects = 'clang;lld;clang-tools-extra'
++  projects = 'clang;lld'
+   if args.bolt:
+     projects += ';bolt'
+ 

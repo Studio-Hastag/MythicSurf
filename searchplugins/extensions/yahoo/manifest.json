@@ -1,0 +1,28 @@
+{
+  "name": "Yahoo!",
+  "description": "Yahoo",
+  "manifest_version": 2,
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "id": "yahoo@search.mozilla.org"
+    }
+  },
+  "hidden": true,
+  "icons": {
+    "16": "favicon.ico"
+  },
+  "web_accessible_resources": [
+    "favicon.ico"
+  ],
+  "chrome_settings_overrides": {
+    "search_provider": {
+      "keyword": "yahoo",
+      "name": "Yahoo!",
+      "search_url": "https://yssads.ddc.com/yhs.php",
+      "search_form": "https://yssads.ddc.com/yhs.php?c=19111&amp;surl=https://intl.linuxmint.com",
+      "search_url_get_params": "c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
+      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+Index: chromium-135.0.7049.52/chrome/app/resources/manpage.1.in
+===================================================================
+--- chromium-135.0.7049.52.orig/chrome/app/resources/manpage.1.in
++++ chromium-135.0.7049.52/chrome/app/resources/manpage.1.in
+@@ -34,6 +34,10 @@ a given user data directory.
+ Open in incognito mode.
+ 
+ .TP
++\fB\-\-temp-profile\fR
++Use a throw-away/temporary profile for this session.  This creates an entirely new user profile temporarily.  It is not the same as incognito mode.
++
++.TP
+ \fB\-\-new-window\fR
+ If \fIPATH\fR or \fIURL\fR is given, open it in a new window.
+ 

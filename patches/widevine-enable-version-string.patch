@@ -1,0 +1,54 @@
+Description: Enable Widevine, set its version string to "undefined",
+ and allow it in all architectures.
+ .
+ We don't want to bundle Widevine, as it is non-free software, in Chromium,
+ but we also don't want to prevent users from opting in to Widevine.
+ .
+ However, By enabling the component, Widevine will be download by the
+ browser from about://components.
+ .
+ The user can also place the WidevineCdm directory shipped
+ with Google Chrome deb package in ~/snap/chromium/current/.local/lib.
+ .
+Author: Michael Gilbert <mgilbert@debian.org>
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+Author: Nathan Pratta Teodosio <nathan.teodosio@canonical.com>
+Last-Update: 2023-02-27
+Forwarded: not-needed
+Bug-Ubuntu: https://launchpad.net/bugs/2008433
+
+Index: chromium-135.0.7049.52/third_party/widevine/cdm/widevine.gni
+===================================================================
+--- chromium-135.0.7049.52.orig/third_party/widevine/cdm/widevine.gni
++++ chromium-135.0.7049.52/third_party/widevine/cdm/widevine.gni
+@@ -27,7 +27,7 @@ if (is_chromeos && !is_chromeos_device)
+ library_widevine_cdm_available =
+     (is_chromeos &&
+      (target_cpu == "x64" || target_cpu == "arm" || target_cpu == "arm64")) ||
+-    (target_os == "linux" && target_cpu == "x64") ||
++    (target_os == "linux") ||
+     (target_os == "mac" && (target_cpu == "x64" || target_cpu == "arm64")) ||
+     (target_os == "win" &&
+      (target_cpu == "x86" || target_cpu == "x64" || target_cpu == "arm64"))
+Index: chromium-135.0.7049.52/chrome/common/media/cdm_registration.cc
+===================================================================
+--- chromium-135.0.7049.52.orig/chrome/common/media/cdm_registration.cc
++++ chromium-135.0.7049.52/chrome/common/media/cdm_registration.cc
+@@ -92,7 +92,7 @@ std::unique_ptr<content::CdmInfo> Create
+         // BUILDFLAG(ENABLE_WIDEVINE_CDM_COMPONENT)) && (BUILDFLAG(IS_LINUX) ||
+         // BUILDFLAG(IS_CHROMEOS))
+ 
+-#if BUILDFLAG(BUNDLE_WIDEVINE_CDM) && \
++#if BUILDFLAG(ENABLE_WIDEVINE_CDM_COMPONENT) && \
+     (BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS))
+ // On Linux/ChromeOS we have to preload the CDM since it uses the zygote
+ // sandbox. On Windows and Mac, CDM registration is handled by Component
+@@ -186,7 +186,7 @@ void AddSoftwareSecureWidevine(std::vect
+   // We should still use the version selected by Component Update (except for
+   // case #3 above).
+   std::unique_ptr<content::CdmInfo> bundled_widevine = nullptr;
+-#if BUILDFLAG(BUNDLE_WIDEVINE_CDM)
++#if BUILDFLAG(ENABLE_WIDEVINE_CDM_COMPONENT)
+   bundled_widevine = GetBundledWidevine();
+ #endif
+ 

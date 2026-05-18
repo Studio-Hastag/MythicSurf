@@ -1,0 +1,98 @@
+#!/usr/bin/python3
+import os
+import sys
+import shutil
+import json
+import re
+from urllib.parse import urlparse
+from contextlib import contextmanager
+
+from build_vars import *
+
+def new_section(msg):
+    print("\n*******************************************************")
+    print("* %s" % msg)
+    print("*******************************************************\n")
+
+def exit_if_fail_os_system(command):
+    ret = os.system(command)
+    if (ret):
+        print("command failed with code %d: %s" % (ret, command))
+        exit(1)
+
+def exit_if_fail_os_makedirs(path, exist_ok=False):
+    try:
+        os.makedirs(path, exist_ok=exist_ok)
+    except Exception as e:
+        print("mkdir failed: %s: %s" % (path, e))
+        exit(1)
+
+@contextmanager
+def exit_if_exception():
+  try:
+    yield
+  except Exception as e:
+    print("Something failed: %s" % e)
+    exit(1)
+
+#####################################################################
+# Get the source and unpack it.
+#####################################################################
+new_section("Downloading and unpacking source:\n%s" % SOURCE_URL)
+
+exit_if_fail_os_system("wget -N -nv %s" % SOURCE_URL)
+exit_if_fail_os_system("tar -xf %s.tar.xz" % SOURCE_TARNAME)
+
+#####################################################################
+# Copy in default preferences and bookmarks
+#####################################################################
+new_section("Copying in preferences and bookmarks")
+
+exit_if_fail_os_makedirs("%s/etc/chromium" % STAGING_DIR)
+
+codename = os.environ["MINT_CODENAME"]
+# exit_if_fail_os_system("cp data/master_preferences %s/etc/chromium" % STAGING_DIR)
+exit_if_fail_os_system("sed s/@CODENAME@/%s/ data/master_preferences > %s/etc/chromium/master_preferences" % (codename, STAGING_DIR))
+
+exit_if_fail_os_makedirs("%s/usr/share/chromium" % STAGING_DIR)
+exit_if_fail_os_system("cp data/initial_bookmarks.html %s/usr/share/chromium" % STAGING_DIR)
+
+exit_if_fail_os_makedirs("%s/usr/share/applications" % STAGING_DIR)
+exit_if_fail_os_system("cp data/chromium-browser.desktop %s/usr/share/applications" % STAGING_DIR)
+
+with exit_if_exception():
+    src_icons_path = "%s/chrome/app/theme/chromium" % CHROME_SOURCE_DIR
+    for file in os.listdir(src_icons_path):
+        match = re.search(r'(?:product_logo_)(\d+)(?:.png)', file)
+        if match:
+            size = match.group(1)
+            d = "%s/usr/share/icons/hicolor/%sx%s/apps" % (STAGING_DIR, size, size)
+            exit_if_fail_os_makedirs(d, exist_ok=True)
+            origin_path = os.path.join(src_icons_path, file)
+            target_path = os.path.join(d, "chromium.png")
+            exit_if_fail_os_system("cp %s %s" % (origin_path, target_path))
+
+#####################################################################
+# Apply ubuntu patches
+#####################################################################
+new_section("Applying quilt patches")
+
+series_file = "series.%s" % IMAGE_CODENAME
+if IMAGE_32BIT:
+    series_file += ".i386"
+
+os.chdir(CHROME_SOURCE_DIR)
+#exit_if_fail_os_system("QUILT_SERIES=%s QUILT_PATCHES=%s quilt push -a" % (os.path.join(curdir, "patches", series_file),
+#                                                                           os.path.join(curdir, "patches")))
+exit_if_fail_os_system("QUILT_SERIES=%s QUILT_PATCHES=%s quilt push -a --refresh" % (os.path.join(curdir, "patches", series_file),
+                                                                                     os.path.join(curdir, "patches")))
+
+#####################################################################
+# Search modifications
+#####################################################################
+new_section("Modifying search engines")
+
+exit_if_fail_os_system("cp %s/data/prepopulated_engines.json third_party/search_engines_data/resources/definitions" % curdir)
+exit_if_fail_os_system("cp %s/data/regional_settings.json third_party/search_engines_data/resources/definitions" % curdir)
+
+new_section("Prep finished, run build")

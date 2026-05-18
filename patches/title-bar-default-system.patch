@@ -1,0 +1,16 @@
+Description: Never default to using the custom title bar. Chromium should integrate, not be a special little snowflake.
+Forwarded: not-needed
+
+Index: chromium-135.0.7049.52/ui/base/x/x11_util.cc
+===================================================================
+--- chromium-135.0.7049.52.orig/ui/base/x/x11_util.cc
++++ chromium-135.0.7049.52/ui/base/x/x11_util.cc
+@@ -364,6 +364,8 @@ bool HasWMSpecProperty(const base::flat_
+ }
+ 
+ bool GetCustomFramePrefDefault() {
++  return false;
++
+   // _NET_WM_MOVERESIZE is needed for frame-drag-initiated window movement.
+   if (!x11::Connection::Get()->WmSupportsHint(
+           x11::GetAtom("_NET_WM_MOVERESIZE"))) {

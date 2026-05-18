@@ -1,0 +1,22 @@
+Description: Jammy has Libva 2.14, on which the below removed members are not
+ available (introduced in 2.15).
+Author: Nathan Pratta Teodosio
+Forwarded: not-yet
+
+Index: chromium-135.0.7049.52/media/gpu/vaapi/av1_vaapi_video_encoder_delegate.cc
+===================================================================
+--- chromium-135.0.7049.52.orig/media/gpu/vaapi/av1_vaapi_video_encoder_delegate.cc
++++ chromium-135.0.7049.52/media/gpu/vaapi/av1_vaapi_video_encoder_delegate.cc
+@@ -737,10 +737,12 @@ bool AV1VaapiVideoEncoderDelegate::Submi
+   seq_param.seq_fields.bits.enable_restoration =
+       sequence_header_.enable_restoration;
+ #if VA_CHECK_VERSION(1, 15, 0)
++#if VA_CHECK_VERSION(1, 15, 0)
+   seq_param.seq_fields.bits.bit_depth_minus8 = 0;
+   seq_param.seq_fields.bits.subsampling_x = 1;
+   seq_param.seq_fields.bits.subsampling_y = 1;
+ #endif
++#endif
+ 
+   return vaapi_wrapper_->SubmitBuffer(VAEncSequenceParameterBufferType,
+                                       sizeof(VAEncSequenceParameterBufferAV1),

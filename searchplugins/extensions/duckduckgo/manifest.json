@@ -1,0 +1,61 @@
+{
+  "name": "DuckDuckGo",
+  "description": "Search DuckDuckGo",
+  "manifest_version": 2,
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "id": "duckduckgo@search.mozilla.org"
+    }
+  },
+  "hidden": true,
+  "icons": {
+    "16": "favicon.ico"
+  },
+  "web_accessible_resources": [
+    "favicon.ico"
+  ],
+  "chrome_settings_overrides": {
+    "search_provider": {
+      "keyword": "ddg",
+      "name": "DuckDuckGo",
+      "search_url": "https://duckduckgo.com/",
+      "search_form": "https://duckduckgo.com/?q={searchTerms}",
+      "search_url_get_params": "t=lm&q={searchTerms}",
+      "params": [
+        {
+          "name": "t",
+          "condition": "purpose",
+          "purpose": "contextmenu",
+          "value": "lm"
+        },
+        {
+          "name": "t",
+          "condition": "purpose",
+          "purpose": "keyword",
+          "value": "lm"
+        },
+        {
+          "name": "t",
+          "condition": "purpose",
+          "purpose": "searchbar",
+          "value": "lm"
+        },
+        {
+          "name": "t",
+          "condition": "purpose",
+          "purpose": "homepage",
+          "value": "lm"
+        },
+        {
+          "name": "t",
+          "condition": "purpose",
+          "purpose": "newtab",
+          "value": "lm"
+        }
+      ],
+      "suggest_url": "https://ac.duckduckgo.com/ac/",
+      "suggest_url_get_params": "t=lm&q={searchTerms}&type=list"
+    }
+  }
+}

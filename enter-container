@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Build container
+docker build --tag chromium -f chromium.dockerfile  .
+
+# Delete instance
+echo "STOPPING INSTANCE"
+docker stop chromium
+docker rm chromium
+
+# Create instance
+echo "CREATING INSTANCE"
+docker run -it -v `pwd`:/VOLUME --name chromium -h chromium -d chromium
+
+# Access instance
+echo "STARTING INSTANCE"
+docker start chromium
+
+echo "ACCESSING INSTANCE"
+docker exec -it chromium /bin/bash
+

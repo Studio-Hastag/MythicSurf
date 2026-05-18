@@ -1,0 +1,28 @@
+Description: revert upstream commit https://github.com/intel/libva/commit/ede255b8f6b9c21c17cd74b654e550b9704874fa,
+ which was getting in the way of snapcraft's rewriting of pc files to use the stage directory as prefix.
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+
+--- a/meson.build
++++ b/meson.build
+@@ -65,7 +65,7 @@ libva_lt_version = '@0@.@1@.@2@'.format(
+ 
+ driverdir = get_option('driverdir')
+ if driverdir == ''
+-  driverdir = join_paths(get_option('prefix'), get_option('libdir'), 'dri')
++  driverdir = '@0@/@1@/@2@'.format(get_option('prefix'), get_option('libdir'), 'dri')
+ endif
+ 
+ configinc = include_directories('.')
+--- a/pkgconfig/meson.build
++++ b/pkgconfig/meson.build
+@@ -2,8 +2,8 @@ pkgconf = configuration_data()
+ 
+ pkgconf.set('prefix', get_option('prefix'))
+ pkgconf.set('exec_prefix', '${prefix}')
+-pkgconf.set('libdir', join_paths(get_option('prefix'), get_option('libdir')))
+-pkgconf.set('includedir', join_paths(get_option('prefix'), get_option('includedir')))
++pkgconf.set('libdir', '${prefix}/@0@'.format(get_option('libdir')))
++pkgconf.set('includedir', '${prefix}/@0@'.format(get_option('includedir')))
+ pkgconf.set('LIBVA_VERSION', libva_version)
+ pkgconf.set('VA_API_VERSION', va_api_version)
+ pkgconf.set('LIBVA_DRIVERS_PATH', driverdir)

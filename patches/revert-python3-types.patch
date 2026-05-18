@@ -1,0 +1,104 @@
+Index: chromium-138.0.7204.4/tools/json_to_struct/aggregation.py
+===================================================================
+--- chromium-138.0.7204.4.orig/tools/json_to_struct/aggregation.py
++++ chromium-138.0.7204.4/tools/json_to_struct/aggregation.py
+@@ -17,22 +17,22 @@ class AggregationKind(Enum):
+ class AggregationDetails:
+   """Aggregation rules, if specified by the processed JSON file."""
+   kind: AggregationKind
+-  name: Optional[str]
++  name: Optional
+   export_items: bool
+-  elements: dict[str, str]
+-  map_key_type: Optional[str]
++  elements: dict
++  map_key_type: Optional
+ 
+-  def GetSortedArrayElements(self) -> list[str]:
++  def GetSortedArrayElements(self):
+     """Returns sorted list of names of all elements."""
+     return sorted(self.elements.keys())
+ 
+-  def GetSortedMapElements(self) -> list[tuple[str, str]]:
++  def GetSortedMapElements(self):
+     """Returns sorted mapping of all elements, including aliases."""
+     keys = sorted(self.elements.keys())
+     return [(key, self.elements[key]) for key in keys]
+ 
+ 
+-def GetAggregationDetails(description) -> AggregationDetails:
++def GetAggregationDetails(description):
+   """Extracts aggregation details from a JSON structure.
+ 
+   This function processes a JSON data object to determine its aggregation
+@@ -103,7 +103,7 @@ def GetAggregationDetails(description) -
+ 
+ 
+ def GenerateCCAggregation(type_name: str,
+-                          aggregation: AggregationDetails) -> Optional[str]:
++                          aggregation: AggregationDetails):
+   """
+     Generates C++ aggregation code based on the aggregation kind.
+ 
+@@ -123,7 +123,7 @@ def GenerateCCAggregation(type_name: str
+   return None
+ 
+ 
+-def _GenerateCCArray(type_name: str, aggregation: AggregationDetails) -> str:
++def _GenerateCCArray(type_name: str, aggregation: AggregationDetails):
+   """
+     Generates C++ code for an array aggregation.
+ 
+@@ -144,7 +144,7 @@ def _GenerateCCArray(type_name: str, agg
+   return res
+ 
+ 
+-def _GenerateCCMap(type_name: str, aggregation: AggregationDetails) -> str:
++def _GenerateCCMap(type_name: str, aggregation: AggregationDetails):
+   """
+     Generates C++ code for a map aggregation.
+ 
+@@ -168,7 +168,7 @@ def _GenerateCCMap(type_name: str, aggre
+ 
+ 
+ def GenerateHHAggregation(type_name: str,
+-                          aggregation: AggregationDetails) -> Optional[str]:
++                          aggregation: AggregationDetails):
+   """
+     Generates header file aggregation code based on the aggregation kind.
+ 
+@@ -188,7 +188,7 @@ def GenerateHHAggregation(type_name: str
+   return None
+ 
+ 
+-def _GenerateHHArray(type_name: str, aggregation: AggregationDetails) -> str:
++def _GenerateHHArray(type_name: str, aggregation: AggregationDetails):
+   """
+     Generates header file code for an array aggregation.
+ 
+@@ -205,7 +205,7 @@ def _GenerateHHArray(type_name: str, agg
+   return res
+ 
+ 
+-def _GenerateHHMap(type_name: str, aggregation: AggregationDetails) -> str:
++def _GenerateHHMap(type_name: str, aggregation: AggregationDetails):
+   """
+     Generates header file code for a map aggregation.
+ 
+Index: chromium-138.0.7204.4/tools/metrics/histograms/extract_histograms.py
+===================================================================
+--- chromium-138.0.7204.4.orig/tools/metrics/histograms/extract_histograms.py
++++ chromium-138.0.7204.4/tools/metrics/histograms/extract_histograms.py
+@@ -84,10 +84,10 @@ class Error(Exception):
+   pass
+ 
+
+-class ExtractionErrors(list[str]):
++class ExtractionErrors(list):
+   """A list of error strings, with new entries also logged."""
+ 
+-  def AppendAndLog(self, error: str) -> None:
++  def AppendAndLog(self, error):
+     """Appends an error to the list after logging it."""
+     logging.error(error)
+     self.append(error)

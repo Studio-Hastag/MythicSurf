@@ -1,0 +1,16 @@
+Description: Do not default to GTK4, not even in Gnome.
+ .
+ Reverts https://chromium.googlesource.com/chromium/src/+/8396c0ba90c664fdc6723173b301b94820f71a2f%5E!
+ which caused multiple breakages.
+Author: Nathan Pratta Teodosio <nteodosio@ubuntu.com>
+Bug-Ubuntu: https://launchpad.net/bugs/2106312 
+Bug-Ubuntu: https://launchpad.net/bugs/2106342
+
+--- a/ui/gtk/gtk_compat.cc
++++ b/ui/gtk/gtk_compat.cc
+@@ -138,5 +138,4 @@
+     // GNOME is version 42+. This is the case for Debian, Ubuntu, and the
+     // RPM-based distributions that are supported.
+-    gtk_version = 4;
+   }
+   // Prefer GTK3 for non-GNOME desktops as the GTK4 ecosystem is still immature.

@@ -1,0 +1,30 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS=optimize=-lto
+
+ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+    PAR := $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+else
+    PAR := "1"
+endif
+
+DEB_VERSION=$(shell dpkg-parsechangelog | sed -n 's/^Version: //p')
+
+%:
+	dh  ${@}
+
+override_dh_auto_configure:
+	$(CURDIR)/prep $(CURDIR) $(DEB_VERSION)
+
+override_dh_prep:
+
+override_dh_auto_build:
+	$(CURDIR)/build $(CURDIR) $(DEB_VERSION) $(PAR)
+
+override_dh_auto_install:
+	dh_install
+
+override_dh_strip:
+	dh_strip --dbg-package=mythicsurf-dbg
+
+override_dh_dwz:

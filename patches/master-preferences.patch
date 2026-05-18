@@ -1,0 +1,29 @@
+From 82ee9e41b092d981bfecbfe3bdc6faa1db01aebe Mon Sep 17 00:00:00 2001
+From: Michael Webster <miketwebster@gmail.com>
+Date: Thu, 8 Jun 2023 12:08:34 -0400
+Subject: [PATCH] Look in /etc/chromium for master_preferences.
+
+---
+ chrome/browser/first_run/first_run_internal_linux.cc | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
+
+Index: chromium-135.0.7049.52/chrome/browser/first_run/first_run_internal_linux.cc
+===================================================================
+--- chromium-135.0.7049.52.orig/chrome/browser/first_run/first_run_internal_linux.cc
++++ chromium-135.0.7049.52/chrome/browser/first_run/first_run_internal_linux.cc
+@@ -19,13 +19,8 @@ bool IsOrganicFirstRun() {
+ }
+ 
+ base::FilePath InitialPrefsPath() {
+-  // The standard location of the initial prefs is next to the chrome binary.
+-  base::FilePath dir_exe;
+-  if (!base::PathService::Get(base::DIR_EXE, &dir_exe)) {
+-    return base::FilePath();
+-  }
+-
+-  return installer::InitialPreferences::Path(dir_exe);
++    // Patched for Linux Mint
++    return base::FilePath("/etc/chromium/master_preferences");
+ }
+ 
+ }  // namespace internal

@@ -1,0 +1,31 @@
+Description: do not hardcode LLVM_DEFAULT_TARGET_TRIPLE,
+  because then building gn with that version of clang fails on any
+  architecture that's not x86-64.
+  This partially reverts https://chromium.googlesource.com/chromium/src/+/2960c2b,
+  which was meant to affect Mac only anyway.
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+Forwarded: not-needed
+
+--- a/tools/clang/scripts/build.py
++++ b/tools/clang/scripts/build.py
+@@ -993,19 +993,6 @@ def main():
+       cmake_args.append('-DLLVM_DEFAULT_TARGET_TRIPLE=arm64-apple-darwin')
+     else:
+       cmake_args.append('-DLLVM_DEFAULT_TARGET_TRIPLE=x86_64-apple-darwin')
+-  elif sys.platform.startswith('linux'):
+-    if platform.machine() == 'aarch64':
+-      cmake_args.append(
+-          '-DLLVM_DEFAULT_TARGET_TRIPLE=aarch64-unknown-linux-gnu')
+-    elif platform.machine() == 'riscv64':
+-      cmake_args.append(
+-          '-DLLVM_DEFAULT_TARGET_TRIPLE=riscv64-unknown-linux-gnu')
+-    elif platform.machine() == 'loongarch64':
+-      cmake_args.append(
+-          '-DLLVM_DEFAULT_TARGET_TRIPLE=loongarch64-unknown-linux-gnu')
+-    else:
+-      cmake_args.append('-DLLVM_DEFAULT_TARGET_TRIPLE=x86_64-unknown-linux-gnu')
+-    cmake_args.append('-DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=ON')
+   elif sys.platform == 'win32':
+     cmake_args.append('-DLLVM_DEFAULT_TARGET_TRIPLE=x86_64-pc-windows-msvc')
+ 
+

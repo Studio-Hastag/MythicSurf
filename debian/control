@@ -1,0 +1,140 @@
+Source: mythicsurf
+Section: web
+Priority: optional
+Maintainer: Studio Hastag <contact@hastag.fr>
+Standards-Version: 3.9.5
+Build-Depends:
+    debhelper (>= 9),
+    quilt,
+    wget,
+    make,
+    g++,
+    autoconf,
+    automake,
+    ninja-build,
+    python3-pkgconfig,
+    lsb-release,
+    python3,
+    bison,
+    flex,
+    gawk,
+    git,
+    gperf,
+    subversion,
+    cmake,
+    sed,
+    gzip,
+    default-jre-headless,
+    libxml2-dev,
+    libpulse-dev,
+    libcups2-dev,
+    libasound2-dev,
+    libnss3-dev,
+    mesa-common-dev,
+    libgles2-mesa-dev,
+    libpci-dev,
+    libxtst-dev,
+    libxss-dev,
+    qtbase5-dev,
+    libgtk-3-dev,
+    libglib2.0-dev,
+    libudev-dev,
+    libdrm-dev,
+    libcap-dev,
+    libgcrypt-dev,
+    libkrb5-dev,
+    libxkbcommon-dev,
+    libpam0g-dev,
+    libpipewire-0.3-dev,
+    libffi-dev,
+    libgbm-dev,
+    xcb-proto,
+    uuid-dev,
+    chrpath,
+    yasm,
+    libglib2.0-bin,
+    shared-mime-info,
+    zlib1g-dev,
+    libx11-xcb-dev,
+    libxcb-dri3-dev,
+    libtinfo6,
+    libva-dev,
+    libwayland-dev,
+    libxshmfence-dev,
+    libcurl4-openssl-dev,
+    libevdev-dev,
+    libssl-dev,
+    elfutils,
+    nodejs
+
+Package: mythicsurf
+Architecture: any
+Depends:
+    python3 (>= 3.3),
+    perl,
+    libgbm1,
+    libgl1,
+    libglx-mesa0,
+    libgtk-3-0,
+    libnss3,
+    libsecret-1-0,
+    libxss1,
+    shared-mime-info,
+    libxshmfence1,
+    ${misc:Depends}
+Provides:
+    chromium-codecs-ffmpeg,
+    chromium-codecs-ffmpeg-extra,
+Breaks:
+#     debian/buster
+    chromium-common,
+    chromium-l10n,
+    chromium-driver,
+    chromium-sandbox,
+    chromium-shell,
+#     ubuntu 18.04
+    chromium-browser-l10n,
+    chromium-chromedriver,
+    chromium-codecs-ffmpeg,
+    chromium-codecs-ffmpeg-extra,
+Replaces:
+#     debian/buster
+    chromium-common,
+    chromium-l10n,
+    chromium-driver,
+    chromium-sandbox,
+    chromium-shell,
+#     ubuntu 18.04
+    chromium-browser-l10n,
+    chromium-chromedriver,
+    chromium-codecs-ffmpeg,
+    chromium-codecs-ffmpeg-extra,
+Description: web browser
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains the web browser component.
+
+Package: mythicsurf-dbg
+Section: debug
+Architecture: any
+Priority: extra
+Depends: mythicsurf (= ${binary:Version}), ${misc:Depends}
+Breaks:
+#     debian/buster
+    chromium-dbgsym,
+#     ubuntu 18.04
+    chromium-browser-dbgsym,
+    chromium-chromedriver-dbgsym,
+Replaces:
+#     debian/buster
+    chromium-dbgsym,
+#     ubuntu 18.04
+    chromium-browser-dbgsym,
+    chromium-chromedriver-dbgsym,
+Description: web browser
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains debugging symbols.
+

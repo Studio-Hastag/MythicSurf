@@ -1,0 +1,1505 @@
+mythicsurf (148.0.7778.167~mythicsurf1) lucid; urgency=medium
+
+  * Première version de MythicSurf, basée sur Chromium 148.0.7778.167
+
+ -- Studio Hastag <dev@hastag.fr>  Mon, 18 May 2026 21:37:47 +0200
+
+chromium (148.0.7778.167~linuxmint1+zena) unstable; urgency=medium
+
+  * 148.0.7778.167
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 12 May 2026 20:30:56 +0100
+
+chromium (148.0.7778.96~linuxmint1) unstable; urgency=medium
+
+  * 148.0.7778.96
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 05 May 2026 21:14:15 +0100
+
+chromium (147.0.7727.137~linuxmint1) unstable; urgency=medium
+
+  * 147.0.7727.137
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 28 Apr 2026 21:11:19 +0100
+
+chromium (147.0.7727.116~linuxmint1) unstable; urgency=medium
+
+  * 147.0.7727.116
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 22 Apr 2026 18:53:17 +0100
+
+chromium (147.0.7727.101~linuxmint1) unstable; urgency=medium
+
+  * 147.0.7727.101
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 15 Apr 2026 18:51:16 +0100
+
+chromium (147.0.7727.55~linuxmint1) unstable; urgency=medium
+
+  * 147.0.7727.55
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 07 Apr 2026 19:26:16 +0100
+
+chromium (146.0.7680.177~linuxmint1) unstable; urgency=medium
+
+  * 146.0.7680.177
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 31 Mar 2026 20:42:30 +0100
+
+chromium (146.0.7680.164~linuxmint1) unstable; urgency=medium
+
+  * 146.0.7680.164
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 23 Mar 2026 19:27:16 +0000
+
+chromium (146.0.7680.153~linuxmint1) unstable; urgency=medium
+
+  * 146.0.7680.153
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 18 Mar 2026 18:04:20 +0000
+
+chromium (146.0.7680.80~linuxmint1) unstable; urgency=medium
+
+  * 146.0.7680.80
+
+ -- Linux Mint <root@linuxmint.com>  Sat, 14 Mar 2026 01:27:16 +0000
+
+chromium (146.0.7680.75~linuxmint1) unstable; urgency=medium
+
+  * 146.0.7680.75
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 12 Mar 2026 21:27:16 +0000
+
+chromium (146.0.7680.71~linuxmint1) unstable; urgency=medium
+
+  * 146.0.7680.71
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 10 Mar 2026 18:57:16 +0000
+
+chromium (145.0.7632.159~linuxmint1) unstable; urgency=medium
+
+  * 145.0.7632.159
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 04 Mar 2026 00:27:15 +0000
+
+chromium (145.0.7632.116~linuxmint1) unstable; urgency=medium
+
+  * 145.0.7632.116
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 23 Feb 2026 20:40:16 +0000
+
+chromium (145.0.7632.109~linuxmint1) unstable; urgency=medium
+
+  * 145.0.7632.109
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 18 Feb 2026 21:24:17 +0000
+
+chromium (145.0.7632.75~linuxmint1) unstable; urgency=medium
+
+  * 145.0.7632.75
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 13 Feb 2026 18:39:15 +0000
+
+chromium (145.0.7632.67~linuxmint1) unstable; urgency=medium
+
+  * 145.0.7632.67
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 12 Feb 2026 20:09:16 +0000
+
+chromium (145.0.7632.45~linuxmint1) unstable; urgency=medium
+
+  * 145.0.7632.45
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 10 Feb 2026 21:39:16 +0000
+
+chromium (144.0.7559.132~linuxmint1) unstable; urgency=medium
+
+  * 144.0.7559.132
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 03 Feb 2026 19:39:17 +0000
+
+chromium (144.0.7559.109~linuxmint1) unstable; urgency=medium
+
+  * 144.0.7559.109
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 27 Jan 2026 21:23:56 +0000
+
+chromium (144.0.7559.96~linuxmint1) unstable; urgency=medium
+
+  * 144.0.7559.96
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 20 Jan 2026 22:46:55 +0000
+
+chromium (144.0.7559.59~linuxmint1) unstable; urgency=medium
+
+  * 144.0.7559.59
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 14 Jan 2026 17:39:17 +0000
+
+chromium (143.0.7499.192~linuxmint1) unstable; urgency=medium
+
+  * 143.0.7499.192
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 06 Jan 2026 19:54:16 +0000
+
+chromium (143.0.7499.169~linuxmint1) unstable; urgency=medium
+
+  * 143.0.7499.169
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 18 Dec 2025 20:24:18 +0000
+
+chromium (143.0.7499.146~linuxmint1) unstable; urgency=medium
+
+  * 143.0.7499.146
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 16 Dec 2025 19:37:17 +0000
+
+chromium (143.0.7499.109~linuxmint1) unstable; urgency=medium
+
+  * 143.0.7499.109
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 10 Dec 2025 18:22:15 +0000
+
+chromium (143.0.7499.40~linuxmint1) unstable; urgency=medium
+
+  * 143.0.7499.40
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 02 Dec 2025 18:38:16 +0000
+
+chromium (142.0.7444.175~linuxmint1) unstable; urgency=medium
+
+  * 142.0.7444.175
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 17 Nov 2025 21:05:15 +0000
+
+chromium (142.0.7444.162~linuxmint1) unstable; urgency=medium
+
+  * 142.0.7444.162
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 11 Nov 2025 18:51:15 +0000
+
+chromium (142.0.7444.134~linuxmint1) unstable; urgency=medium
+
+  * 142.0.7444.134
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 06 Nov 2025 00:05:15 +0000
+
+chromium (142.0.7444.59~linuxmint1) unstable; urgency=medium
+
+  * 142.0.7444.59
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 28 Oct 2025 21:35:17 +0000
+
+chromium (141.0.7390.122~linuxmint1) unstable; urgency=medium
+
+  * 141.0.7390.122
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 21 Oct 2025 20:20:16 +0100
+
+chromium (141.0.7390.107~linuxmint1) unstable; urgency=medium
+
+  * 141.0.7390.107
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 14 Oct 2025 21:20:18 +0100
+
+chromium (141.0.7390.76~linuxmint1) unstable; urgency=medium
+
+  * 141.0.7390.76
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 09 Oct 2025 21:36:17 +0100
+
+chromium (141.0.7390.65~linuxmint1) unstable; urgency=medium
+
+  * 141.0.7390.65
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 07 Oct 2025 20:50:17 +0100
+
+chromium (141.0.7390.54~linuxmint1) unstable; urgency=medium
+
+  * 141.0.7390.54
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 30 Sep 2025 21:19:32 +0100
+
+chromium (140.0.7339.207~linuxmint1) unstable; urgency=medium
+
+  * 140.0.7339.207
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 23 Sep 2025 20:04:17 +0100
+
+chromium (140.0.7339.185~linuxmint1) unstable; urgency=medium
+
+  * 140.0.7339.185
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 17 Sep 2025 19:40:51 +0100
+
+chromium (140.0.7339.127~linuxmint1) unstable; urgency=medium
+
+  * 140.0.7339.127
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 09 Sep 2025 22:43:55 +0100
+
+chromium (140.0.7339.80~linuxmint1) unstable; urgency=medium
+
+  * 140.0.7339.80
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 02 Sep 2025 22:07:15 +0100
+
+chromium (139.0.7258.154~linuxmint1) unstable; urgency=medium
+
+  * 139.0.7258.154
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 26 Aug 2025 19:02:15 +0100
+
+chromium (139.0.7258.138~linuxmint1) unstable; urgency=medium
+
+  * 139.0.7258.138
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 19 Aug 2025 21:26:17 +0100
+
+chromium (139.0.7258.127~linuxmint1) unstable; urgency=medium
+
+  * 139.0.7258.127
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 12 Aug 2025 21:16:54 +0100
+
+chromium (139.0.7258.66~linuxmint1) unstable; urgency=medium
+
+  * 139.0.7258.66
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 05 Aug 2025 19:32:16 +0100
+
+chromium (138.0.7204.183~linuxmint1) unstable; urgency=medium
+
+  * 138.0.7204.183
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 29 Jul 2025 21:33:16 +0100
+
+chromium (138.0.7204.168~linuxmint1) unstable; urgency=medium
+
+  * 138.0.7204.168
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 22 Jul 2025 21:19:16 +0100
+
+chromium (138.0.7204.157~linuxmint1) unstable; urgency=medium
+
+  * 138.0.7204.157
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 15 Jul 2025 18:21:16 +0100
+
+chromium (138.0.7204.100~linuxmint1) unstable; urgency=medium
+
+  * 138.0.7204.100
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 08 Jul 2025 18:04:16 +0100
+
+chromium (138.0.7204.92~linuxmint1) unstable; urgency=medium
+
+  * 138.0.7204.92
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 30 Jun 2025 22:25:40 +0100
+
+chromium (138.0.7204.49~linuxmint1) unstable; urgency=medium
+
+  * 138.0.7204.49
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 24 Jun 2025 19:09:17 +0100
+
+chromium (137.0.7151.119~linuxmint1) unstable; urgency=medium
+
+  * 137.0.7151.119
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 17 Jun 2025 18:18:15 +0100
+
+chromium (137.0.7151.103~linuxmint1) unstable; urgency=medium
+
+  * 137.0.7151.103
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 10 Jun 2025 19:10:17 +0100
+
+chromium (137.0.7151.68~linuxmint1) unstable; urgency=medium
+
+  * 137.0.7151.68
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 03 Jun 2025 00:05:16 +0100
+
+chromium (137.0.7151.55~linuxmint1) unstable; urgency=medium
+
+  * 137.0.7151.55
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 27 May 2025 18:36:16 +0100
+
+chromium (136.0.7103.113~linuxmint1) unstable; urgency=medium
+
+  * 136.0.7103.113
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 14 May 2025 18:14:22 +0100
+
+chromium (136.0.7103.92~linuxmint1) unstable; urgency=medium
+
+  * 136.0.7103.92
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 06 May 2025 18:49:17 +0100
+
+chromium (136.0.7103.59~linuxmint1) unstable; urgency=medium
+
+  * 136.0.7103.59
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 29 Apr 2025 19:43:16 +0100
+
+chromium (135.0.7049.114~linuxmint1) unstable; urgency=medium
+
+  * 135.0.7049.114
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 22 Apr 2025 20:51:17 +0100
+
+chromium (135.0.7049.95~linuxmint1) unstable; urgency=medium
+
+  * 135.0.7049.95
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 15 Apr 2025 21:29:18 +0100
+
+chromium (135.0.7049.84~linuxmint1) unstable; urgency=medium
+
+  * 135.0.7049.84
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 09 Apr 2025 02:21:04 +0100
+
+chromium (135.0.7049.52~linuxmint1) unstable; urgency=medium
+
+  * 135.0.7049.52
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 01 Apr 2025 17:21:18 +0100
+
+chromium (134.0.6998.165~linuxmint1) unstable; urgency=medium
+
+  * 134.0.6998.165
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 21 Mar 2025 16:51:17 +0000
+
+chromium (134.0.6998.117~linuxmint1) unstable; urgency=medium
+
+  * 134.0.6998.117
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 19 Mar 2025 18:19:17 +0000
+
+chromium (134.0.6998.88~linuxmint1) unstable; urgency=medium
+
+  * 134.0.6998.88
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 10 Mar 2025 20:06:17 +0000
+
+chromium (134.0.6998.35~linuxmint1) unstable; urgency=medium
+
+  * 134.0.6998.35
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 04 Mar 2025 21:05:17 +0000
+
+chromium (133.0.6943.141~linuxmint1) unstable; urgency=medium
+
+  * 133.0.6943.141
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 25 Feb 2025 18:25:12 +0000
+
+chromium (133.0.6943.126~linuxmint1) unstable; urgency=medium
+
+  * 133.0.6943.126
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 18 Feb 2025 23:34:32 +0000
+
+chromium (133.0.6943.98~linuxmint1) unstable; urgency=medium
+
+  * 133.0.6943.98
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 12 Feb 2025 18:55:35 +0000
+
+chromium (133.0.6943.53~linuxmint1) unstable; urgency=medium
+
+  * 133.0.6943.53
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 04 Feb 2025 18:00:11 +0000
+
+chromium (132.0.6834.159~linuxmint1) unstable; urgency=medium
+
+  * 132.0.6834.159
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 28 Jan 2025 20:10:53 +0000
+
+chromium (132.0.6834.110~linuxmint1) unstable; urgency=medium
+
+  * 132.0.6834.110
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 23 Jan 2025 00:09:50 +0000
+
+chromium (132.0.6834.83~linuxmint1) unstable; urgency=medium
+
+  * 132.0.6834.83
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 15 Jan 2025 13:56:17 +0000
+
+chromium (131.0.6778.264~linuxmint1) unstable; urgency=medium
+
+  * 131.0.6778.264
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 07 Jan 2025 19:03:15 +0000
+
+chromium (131.0.6778.204~linuxmint1) unstable; urgency=medium
+
+  * 131.0.6778.204
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 18 Dec 2024 21:20:11 +0000
+
+chromium (131.0.6778.139~linuxmint1) unstable; urgency=medium
+
+  * 131.0.6778.139
+
+ -- Linux Mint <root@linuxmint.com>  Sat, 14 Dec 2024 17:46:12 +0000
+
+chromium (131.0.6778.85~linuxmint1) unstable; urgency=medium
+
+  * 131.0.6778.85
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 20 Nov 2024 00:57:00 +0000
+
+chromium (131.0.6778.69~linuxmint1) unstable; urgency=medium
+
+  * 131.0.6778.69
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 12 Nov 2024 18:30:20 +0000
+
+chromium (130.0.6723.116~linuxmint1) unstable; urgency=medium
+
+  * 130.0.6723.116
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 05 Nov 2024 18:29:22 +0000
+
+chromium (130.0.6723.91~linuxmint1) unstable; urgency=medium
+
+  * 130.0.6723.91
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 29 Oct 2024 19:04:22 +0000
+
+chromium (130.0.6723.69~linuxmint1) unstable; urgency=medium
+
+  * 130.0.6723.69
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 22 Oct 2024 21:53:22 +0100
+
+chromium (130.0.6723.58~linuxmint1) unstable; urgency=medium
+
+  * 130.0.6723.58
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 15 Oct 2024 19:27:20 +0100
+
+chromium (129.0.6668.100~linuxmint1) unstable; urgency=medium
+
+  * 129.0.6668.100
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 08 Oct 2024 21:05:21 +0100
+
+chromium (129.0.6668.89~linuxmint1) unstable; urgency=medium
+
+  * 129.0.6668.89
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 01 Oct 2024 23:53:20 +0100
+
+chromium (129.0.6668.70~linuxmint1) unstable; urgency=medium
+
+  * 129.0.6668.70
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 24 Sep 2024 18:48:21 +0100
+
+chromium (129.0.6668.58~linuxmint1) unstable; urgency=medium
+
+  * 129.0.6668.58
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 17 Sep 2024 20:57:20 +0100
+
+chromium (128.0.6613.137~linuxmint1) unstable; urgency=medium
+
+  * 128.0.6613.137
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 10 Sep 2024 23:08:22 +0100
+
+chromium (128.0.6613.119~linuxmint1) unstable; urgency=medium
+
+  * 128.0.6613.119
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 02 Sep 2024 18:02:21 +0100
+
+chromium (128.0.6613.113~linuxmint1) unstable; urgency=medium
+
+  * 128.0.6613.113
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 28 Aug 2024 19:52:22 +0100
+
+chromium (128.0.6613.84~linuxmint1) unstable; urgency=medium
+
+  * 128.0.6613.84
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 21 Aug 2024 22:04:23 +0100
+
+chromium (127.0.6533.119~linuxmint1) unstable; urgency=medium
+
+  * 127.0.6533.119
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 13 Aug 2024 20:42:21 +0100
+
+chromium (127.0.6533.99~linuxmint1) unstable; urgency=medium
+
+  * 127.0.6533.99
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 06 Aug 2024 19:27:22 +0100
+
+chromium (127.0.6533.88~linuxmint1) unstable; urgency=medium
+
+  * 127.0.6533.88
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 30 Jul 2024 21:13:13 +0100
+
+chromium (127.0.6533.72~linuxmint1) unstable; urgency=medium
+
+  * 127.0.6533.72
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 24 Jul 2024 15:18:12 +0100
+
+chromium (126.0.6478.182~linuxmint1) unstable; urgency=medium
+
+  * 126.0.6478.182
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 16 Jul 2024 21:54:13 +0100
+
+chromium (126.0.6478.126~linuxmint1) unstable; urgency=medium
+
+  * 126.0.6478.126
+
+ -- Linux Mint <root@linuxmint.com>  Sat, 06 Jul 2024 18:43:32 +0100
+
+chromium (126.0.6478.126~linuxmint2) unstable; urgency=medium
+
+  * 126.0.6478.126
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 05 Jul 2024 02:53:44 +0100
+
+chromium (126.0.6478.126~linuxmint1) unstable; urgency=medium
+
+  * 126.0.6478.126
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 24 Jun 2024 21:38:01 +0100
+
+chromium (126.0.6478.114~linuxmint1) unstable; urgency=medium
+
+  * 126.0.6478.114
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 18 Jun 2024 23:27:13 +0100
+
+chromium (126.0.6478.61~linuxmint1) unstable; urgency=medium
+
+  * 126.0.6478.61
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 13 Jun 2024 21:12:00 +0100
+
+chromium (126.0.6478.55~linuxmint1) unstable; urgency=medium
+
+  * 126.0.6478.55
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 11 Jun 2024 20:18:12 +0100
+
+chromium (125.0.6422.141~linuxmint1) unstable; urgency=medium
+
+  * 125.0.6422.141
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 30 May 2024 22:13:12 +0100
+
+chromium (125.0.6422.112~linuxmint1) unstable; urgency=medium
+
+  * 125.0.6422.112
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 24 May 2024 00:12:12 +0100
+
+chromium (125.0.6422.76~linuxmint1) unstable; urgency=medium
+
+  * 125.0.6422.76
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 21 May 2024 20:12:12 +0100
+
+chromium (125.0.6422.60~linuxmint1) unstable; urgency=medium
+
+  * 125.0.6422.60
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 15 May 2024 21:57:24 +0100
+
+chromium (124.0.6367.207~linuxmint1) unstable; urgency=medium
+
+  * 124.0.6367.207
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 13 May 2024 21:55:12 +0100
+
+chromium (124.0.6367.201~linuxmint1) unstable; urgency=medium
+
+  * 124.0.6367.201
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 09 May 2024 22:22:12 +0100
+
+chromium (124.0.6367.155~linuxmint1) unstable; urgency=medium
+
+  * 124.0.6367.155
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 07 May 2024 19:08:14 +0100
+
+chromium (124.0.6367.118~linuxmint1) unstable; urgency=medium
+
+  * 124.0.6367.118
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 30 Apr 2024 22:08:23 +0100
+
+chromium (124.0.6367.91~linuxmint1) unstable; urgency=medium
+
+  * 124.0.6367.91
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 25 Apr 2024 20:36:12 +0100
+
+chromium (124.0.6367.78~linuxmint1) unstable; urgency=medium
+
+  * 124.0.6367.78
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 23 Apr 2024 23:36:13 +0100
+
+chromium (124.0.6367.60~linuxmint1) unstable; urgency=medium
+
+  * 124.0.6367.60
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 16 Apr 2024 22:36:12 +0100
+
+chromium (123.0.6312.122~linuxmint1) unstable; urgency=medium
+
+  * 123.0.6312.122
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 10 Apr 2024 19:05:12 +0100
+
+chromium (123.0.6312.105~linuxmint1) unstable; urgency=medium
+
+  * 123.0.6312.105
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 02 Apr 2024 21:18:11 +0100
+
+chromium (123.0.6312.86~linuxmint1) unstable; urgency=medium
+
+  * 123.0.6312.86
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 28 Mar 2024 12:24:12 +0000
+
+chromium (123.0.6312.58~linuxmint1) unstable; urgency=medium
+
+  * 123.0.6312.58
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 19 Mar 2024 20:53:12 +0000
+
+chromium (122.0.6261.128~linuxmint1) unstable; urgency=medium
+
+  * 122.0.6261.128
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 12 Mar 2024 21:46:12 +0000
+
+chromium (122.0.6261.111~linuxmint1) unstable; urgency=medium
+
+  * 122.0.6261.111
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 05 Mar 2024 21:28:11 +0000
+
+chromium (122.0.6261.94~linuxmint1) unstable; urgency=medium
+
+  * 122.0.6261.94
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 27 Feb 2024 19:09:12 +0000
+
+chromium (122.0.6261.69~linuxmint1) unstable; urgency=medium
+
+  * 122.0.6261.69
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 22 Feb 2024 21:18:46 +0000
+
+chromium (122.0.6261.57~linuxmint1) unstable; urgency=medium
+
+  * 122.0.6261.57
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 20 Feb 2024 21:46:12 +0000
+
+chromium (121.0.6167.184~linuxmint1) unstable; urgency=medium
+
+  * 121.0.6167.184
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 13 Feb 2024 19:15:11 +0000
+
+chromium (121.0.6167.160~linuxmint1) unstable; urgency=medium
+
+  * 121.0.6167.160
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 06 Feb 2024 20:55:12 +0000
+
+chromium (121.0.6167.139~linuxmint1) unstable; urgency=medium
+
+  * 121.0.6167.139
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 30 Jan 2024 18:46:32 +0000
+
+chromium (121.0.6167.85~linuxmint1) unstable; urgency=medium
+
+  * 121.0.6167.85
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 23 Jan 2024 17:25:12 +0000
+
+chromium (120.0.6099.224~linuxmint1) unstable; urgency=medium
+
+  * 120.0.6099.224
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 16 Jan 2024 18:20:11 +0000
+
+chromium (120.0.6099.216~linuxmint1) unstable; urgency=medium
+
+  * 120.0.6099.216
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 09 Jan 2024 19:03:33 +0000
+
+chromium (120.0.6099.199~linuxmint1) unstable; urgency=medium
+
+  * 120.0.6099.199
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 03 Jan 2024 19:21:11 +0000
+
+chromium (120.0.6099.129~linuxmint1) unstable; urgency=medium
+
+  * 120.0.6099.129
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 20 Dec 2023 18:21:27 +0000
+
+chromium (120.0.6099.109~linuxmint1) unstable; urgency=medium
+
+  * 120.0.6099.109
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 12 Dec 2023 20:16:12 +0000
+
+chromium (120.0.6099.71~linuxmint1) unstable; urgency=medium
+
+  * 120.0.6099.71
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 06 Dec 2023 21:17:11 +0000
+
+chromium (120.0.6099.62~linuxmint1) unstable; urgency=medium
+
+  * 120.0.6099.62
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 05 Dec 2023 22:32:11 +0000
+
+chromium (119.0.6045.199~linuxmint1) unstable; urgency=medium
+
+  * 119.0.6045.199
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 29 Nov 2023 06:45:11 +0000
+
+chromium (119.0.6045.159~linuxmint1) unstable; urgency=medium
+
+  * 119.0.6045.159
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 15 Nov 2023 11:53:42 +0000
+
+chromium (119.0.6045.123~linuxmint1) unstable; urgency=medium
+
+  * 119.0.6045.123
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 07 Nov 2023 22:39:11 +0000
+
+chromium (119.0.6045.105~linuxmint1) unstable; urgency=medium
+
+  * 119.0.6045.105
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 31 Oct 2023 20:45:12 +0000
+
+chromium (118.0.5993.117~linuxmint1) unstable; urgency=medium
+
+  * 118.0.5993.117
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 24 Oct 2023 22:18:12 +0100
+
+chromium (118.0.5993.88~linuxmint1) unstable; urgency=medium
+
+  * 118.0.5993.88
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 17 Oct 2023 22:44:12 +0100
+
+chromium (118.0.5993.70~linuxmint1) unstable; urgency=medium
+
+  * 118.0.5993.70
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 10 Oct 2023 22:48:22 +0100
+
+chromium (117.0.5938.149~linuxmint1) unstable; urgency=medium
+
+  * 117.0.5938.149
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 04 Oct 2023 22:47:22 +0100
+
+chromium (117.0.5938.132~linuxmint1) unstable; urgency=medium
+
+  * 117.0.5938.132
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 27 Sep 2023 22:18:21 +0100
+
+chromium (117.0.5938.92~linuxmint1) unstable; urgency=medium
+
+  * 117.0.5938.92
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 21 Sep 2023 19:36:22 +0100
+
+chromium (117.0.5938.88~linuxmint1) unstable; urgency=medium
+
+  * 117.0.5938.88
+
+ -- Linux Mint <root@linuxmint.com>  Sat, 16 Sep 2023 01:13:06 +0100
+
+chromium (117.0.5938.62~linuxmint1) unstable; urgency=medium
+
+  * 117.0.5938.62
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 12 Sep 2023 22:08:27 +0100
+
+chromium (116.0.5845.187~linuxmint1) unstable; urgency=medium
+
+  * 116.0.5845.187
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 11 Sep 2023 18:58:06 +0100
+
+chromium (116.0.5845.179~linuxmint1) unstable; urgency=medium
+
+  * 116.0.5845.179
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 06 Sep 2023 15:38:07 +0100
+
+chromium (116.0.5845.140~linuxmint1) unstable; urgency=medium
+
+  * 116.0.5845.140
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 29 Aug 2023 18:43:05 +0100
+
+chromium (116.0.5845.110~linuxmint1) unstable; urgency=medium
+
+  * 116.0.5845.110
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 22 Aug 2023 23:13:06 +0100
+
+chromium (116.0.5845.96~linuxmint1) unstable; urgency=medium
+
+  * 116.0.5845.96
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 15 Aug 2023 17:29:06 +0100
+
+chromium (115.0.5790.170~linuxmint1) unstable; urgency=medium
+
+  * 115.0.5790.170
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 02 Aug 2023 18:45:07 +0100
+
+chromium (115.0.5790.110~linuxmint1) unstable; urgency=medium
+
+  * 115.0.5790.110
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 26 Jul 2023 00:14:06 +0100
+
+chromium (115.0.5790.102~linuxmint1) unstable; urgency=medium
+
+  * 115.0.5790.102
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 21 Jul 2023 04:50:44 +0100
+
+chromium (115.0.5790.98~linuxmint1) unstable; urgency=medium
+
+  * 115.0.5790.98
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 18 Jul 2023 19:59:05 +0100
+
+chromium (114.0.5735.198~linuxmint1) unstable; urgency=medium
+
+  * 114.0.5735.198
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 26 Jun 2023 21:29:05 +0100
+
+chromium (114.0.5735.133~linuxmint1) unstable; urgency=medium
+
+  * 114.0.5735.133
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 13 Jun 2023 17:55:06 +0100
+
+chromium (114.0.5735.106~linuxmint1) unstable; urgency=medium
+
+  * 114.0.5735.106
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 05 Jun 2023 21:27:19 +0100
+
+chromium (114.0.5735.90~linuxmint1) unstable; urgency=medium
+
+  * 114.0.5735.90
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 30 May 2023 21:25:05 +0100
+
+chromium (113.0.5672.126~linuxmint1) unstable; urgency=medium
+
+  * 113.0.5672.126
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 16 May 2023 19:26:07 +0100
+
+chromium (113.0.5672.92~linuxmint1) unstable; urgency=medium
+
+  * 113.0.5672.92
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 08 May 2023 21:54:06 +0100
+
+chromium (113.0.5672.63~linuxmint1) unstable; urgency=medium
+
+  * 113.0.5672.63
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 02 May 2023 20:52:06 +0100
+
+chromium (112.0.5615.165~linuxmint1) unstable; urgency=medium
+
+  * 112.0.5615.165
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 19 Apr 2023 21:04:07 +0100
+
+chromium (112.0.5615.121~linuxmint1) unstable; urgency=medium
+
+  * 112.0.5615.121
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 14 Apr 2023 18:03:06 +0100
+
+chromium (112.0.5615.49~linuxmint1) unstable; urgency=medium
+
+  * 112.0.5615.49
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 04 Apr 2023 22:03:05 +0100
+
+chromium (111.0.5563.146~linuxmint1) unstable; urgency=medium
+
+  * 111.0.5563.146
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 27 Mar 2023 18:47:03 +0100
+
+chromium (111.0.5563.110~linuxmint1) unstable; urgency=medium
+
+  * 111.0.5563.110
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 21 Mar 2023 19:49:04 +0000
+
+chromium (111.0.5563.64~linuxmint1) unstable; urgency=medium
+
+  * 111.0.5563.64
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 07 Mar 2023 20:05:18 +0000
+
+chromium (110.0.5481.177~linuxmint1) unstable; urgency=medium
+
+  * 110.0.5481.177
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 22 Feb 2023 19:07:20 +0000
+
+chromium (110.0.5481.100~linuxmint1) unstable; urgency=medium
+
+  * 110.0.5481.100
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 14 Feb 2023 18:32:22 +0000
+
+chromium (110.0.5481.96~linuxmint1) unstable; urgency=medium
+
+  * 110.0.5481.96
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 13 Feb 2023 23:18:12 +0000
+
+chromium (110.0.5481.77~linuxmint1) unstable; urgency=medium
+
+  * 110.0.5481.77
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 07 Feb 2023 20:03:04 +0000
+
+chromium (109.0.5414.119~linuxmint1) unstable; urgency=medium
+
+  * 109.0.5414.119
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 24 Jan 2023 20:03:05 +0000
+
+chromium (109.0.5414.74~linuxmint1) unstable; urgency=medium
+
+  * 109.0.5414.74
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 10 Jan 2023 19:29:05 +0000
+
+chromium (108.0.5359.124~linuxmint1) unstable; urgency=medium
+
+  * 108.0.5359.124
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 16 Dec 2022 18:18:49 +0000
+
+chromium (108.0.5359.98~linuxmint1) unstable; urgency=medium
+
+  * 108.0.5359.98
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 07 Dec 2022 17:39:51 +0000
+
+chromium (108.0.5359.94~linuxmint1) unstable; urgency=medium
+
+  * 108.0.5359.94
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 02 Dec 2022 20:26:06 +0000
+
+chromium (108.0.5359.71~linuxmint1) unstable; urgency=medium
+
+  * 108.0.5359.71
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 30 Nov 2022 04:12:47 +0000
+
+chromium (107.0.5304.121~linuxmint1) unstable; urgency=medium
+
+  * 107.0.5304.121
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 24 Nov 2022 18:20:17 +0000
+
+chromium (107.0.5304.110~linuxmint1) unstable; urgency=medium
+
+  * 107.0.5304.110
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 09 Nov 2022 00:00:18 +0000
+
+chromium (107.0.5304.87~linuxmint1) unstable; urgency=medium
+
+  * 107.0.5304.87
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 27 Oct 2022 22:49:19 +0100
+
+chromium (107.0.5304.68~linuxmint1) unstable; urgency=medium
+
+  * 107.0.5304.68
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 25 Oct 2022 19:35:05 +0100
+
+chromium (106.0.5249.119~linuxmint1) unstable; urgency=medium
+
+  * 106.0.5249.119
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 12 Oct 2022 00:33:05 +0100
+
+chromium (106.0.5249.103~linuxmint1) unstable; urgency=medium
+
+  * 106.0.5249.103
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 06 Oct 2022 01:51:50 +0100
+
+chromium (106.0.5249.91~linuxmint1) unstable; urgency=medium
+
+  * 106.0.5249.91
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 30 Sep 2022 17:32:49 +0100
+
+chromium (106.0.5249.61~linuxmint1) unstable; urgency=medium
+
+  * 106.0.5249.61
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 27 Sep 2022 19:09:04 +0100
+
+chromium (105.0.5195.125~linuxmint1) unstable; urgency=medium
+
+  * 105.0.5195.125
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 13 Sep 2022 18:20:05 +0100
+
+chromium (105.0.5195.102~linuxmint1) unstable; urgency=medium
+
+  * 105.0.5195.102
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 02 Sep 2022 19:40:05 +0100
+
+chromium (105.0.5195.52~linuxmint1) unstable; urgency=medium
+
+  * 105.0.5195.52
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 30 Aug 2022 19:29:07 +0100
+
+chromium (104.0.5112.101~linuxmint1) unstable; urgency=medium
+
+  * 104.0.5112.101
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 16 Aug 2022 21:30:05 +0100
+
+chromium (104.0.5112.79~linuxmint1) unstable; urgency=medium
+
+  * 104.0.5112.79
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 02 Aug 2022 19:05:05 +0100
+
+chromium (103.0.5060.134~linuxmint1) unstable; urgency=medium
+
+  * 103.0.5060.134
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 19 Jul 2022 21:27:04 +0100
+
+chromium (103.0.5060.114~linuxmint1) unstable; urgency=medium
+
+  * 103.0.5060.114
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 04 Jul 2022 17:42:06 +0100
+
+chromium (103.0.5060.53~linuxmint1) unstable; urgency=medium
+
+  * 103.0.5060.53
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 21 Jun 2022 20:54:05 +0100
+
+chromium (102.0.5005.115~linuxmint1) unstable; urgency=medium
+
+  * 102.0.5005.115
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 09 Jun 2022 20:01:04 +0100
+
+chromium (102.0.5005.61~linuxmint1) unstable; urgency=medium
+
+  * 102.0.5005.61
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 24 May 2022 20:33:05 +0100
+
+chromium (101.0.4951.64~linuxmint1) unstable; urgency=medium
+
+  * 101.0.4951.64
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 10 May 2022 19:49:10 +0100
+
+chromium (101.0.4951.54~linuxmint1) unstable; urgency=medium
+
+  * 101.0.4951.54
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 02 May 2022 17:30:15 +0100
+
+chromium (101.0.4951.41~linuxmint1) unstable; urgency=medium
+
+  * 101.0.4951.41
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 26 Apr 2022 21:20:05 +0100
+
+chromium (100.0.4896.127~linuxmint1) unstable; urgency=medium
+
+  * 100.0.4896.127
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 14 Apr 2022 22:31:04 +0100
+
+chromium (100.0.4896.88~linuxmint1) unstable; urgency=medium
+
+  * 100.0.4896.88
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 11 Apr 2022 20:16:04 +0100
+
+chromium (100.0.4896.75~linuxmint1) unstable; urgency=medium
+
+  * 100.0.4896.75
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 04 Apr 2022 21:36:18 +0100
+
+chromium (100.0.4896.60~linuxmint1) unstable; urgency=medium
+
+  * 100.0.4896.60
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 29 Mar 2022 19:35:04 +0100
+
+chromium (99.0.4844.84~linuxmint1) unstable; urgency=medium
+
+  * 99.0.4844.84
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 25 Mar 2022 18:47:05 +0000
+
+chromium (99.0.4844.82~linuxmint1) unstable; urgency=medium
+
+  * 99.0.4844.82
+
+ -- Linux Mint <root@linuxmint.com>  Sun, 20 Mar 2022 16:12:05 +0000
+
+chromium (99.0.4844.74~linuxmint1) unstable; urgency=medium
+
+  * 99.0.4844.74
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 15 Mar 2022 19:24:05 +0000
+
+chromium (99.0.4844.51~linuxmint1) unstable; urgency=medium
+
+  * 99.0.4844.51
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 01 Mar 2022 20:27:04 +0000
+
+chromium (98.0.4758.102~linuxmint1) unstable; urgency=medium
+
+  * 98.0.4758.102
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 14 Feb 2022 21:09:05 +0000
+
+chromium (98.0.4758.80~linuxmint1) unstable; urgency=medium
+
+  * 98.0.4758.80
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 01 Feb 2022 23:00:05 +0000
+
+chromium (97.0.4692.99~linuxmint1) unstable; urgency=medium
+
+  * 97.0.4692.99
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 19 Jan 2022 22:44:04 +0000
+
+chromium (97.0.4692.71~linuxmint1) unstable; urgency=medium
+
+  * 97.0.4692.71
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 04 Jan 2022 22:01:05 +0000
+
+chromium (96.0.4664.110~linuxmint1) unstable; urgency=medium
+
+  * 96.0.4664.110
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 13 Dec 2021 19:51:04 +0000
+
+chromium (96.0.4664.93~linuxmint1) unstable; urgency=medium
+
+  * 96.0.4664.93
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 06 Dec 2021 21:41:21 +0000
+
+chromium (96.0.4664.45~linuxmint1) unstable; urgency=medium
+
+  * 96.0.4664.45
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 15 Nov 2021 09:32:05 +0000
+
+chromium (95.0.4638.69~linuxmint1) unstable; urgency=medium
+
+  * 95.0.4638.69
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 28 Oct 2021 22:23:04 +0100
+
+chromium (95.0.4638.54~linuxmint1) unstable; urgency=medium
+
+  * 95.0.4638.54
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 19 Oct 2021 19:58:21 +0100
+
+chromium (94.0.4606.81~linuxmint1) unstable; urgency=medium
+
+  * 94.0.4606.81
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 07 Oct 2021 19:22:05 +0100
+
+chromium (94.0.4606.71~linuxmint1) unstable; urgency=medium
+
+  * 94.0.4606.71
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 30 Sep 2021 20:08:05 +0100
+
+chromium (94.0.4606.61~linuxmint1) unstable; urgency=medium
+
+  * 94.0.4606.61
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 24 Sep 2021 05:58:22 +0100
+
+chromium (94.0.4606.54~linuxmint1) unstable; urgency=medium
+
+  * 94.0.4606.54
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 21 Sep 2021 19:05:11 +0100
+
+chromium (93.0.4577.82~linuxmint1) unstable; urgency=medium
+
+  * 93.0.4577.82
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 13 Sep 2021 22:14:11 +0100
+
+chromium (93.0.4577.63~linuxmint1) unstable; urgency=medium
+
+  * 93.0.4577.63
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 31 Aug 2021 20:59:04 +0100
+
+chromium (92.0.4515.159~linuxmint1) unstable; urgency=medium
+
+  * 92.0.4515.159
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 16 Aug 2021 21:28:08 +0100
+
+chromium (92.0.4515.131~linuxmint1) unstable; urgency=medium
+
+  * 92.0.4515.131
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 02 Aug 2021 20:55:07 +0100
+
+chromium (92.0.4515.107~linuxmint1) unstable; urgency=medium
+
+  * 92.0.4515.107
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 20 Jul 2021 22:11:17 +0100
+
+chromium (91.0.4472.164~linuxmint1) unstable; urgency=medium
+
+  * 91.0.4472.164
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 15 Jul 2021 19:58:07 +0100
+
+chromium (91.0.4472.114~linuxmint1) unstable; urgency=medium
+
+  * 91.0.4472.114
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 17 Jun 2021 21:00:21 +0100
+
+chromium (91.0.4472.106~linuxmint1) unstable; urgency=medium
+
+  * 91.0.4472.106
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 15 Jun 2021 01:54:12 +0100
+
+chromium (91.0.4472.101~linuxmint1) unstable; urgency=medium
+
+  * 91.0.4472.101
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 09 Jun 2021 19:59:07 +0100
+
+chromium (91.0.4472.77~linuxmint1) unstable; urgency=medium
+
+  * 91.0.4472.77
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 25 May 2021 20:44:44 +0100
+
+chromium (90.0.4430.212~linuxmint1) unstable; urgency=medium
+
+  * 90.0.4430.212
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 10 May 2021 19:06:07 +0100
+
+chromium (90.0.4430.93~linuxmint1) unstable; urgency=medium
+
+  * 90.0.4430.93
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 27 Apr 2021 00:53:43 +0100
+
+chromium (90.0.4430.85~linuxmint1) unstable; urgency=medium
+
+  * 90.0.4430.85
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 20 Apr 2021 20:21:37 +0100
+
+chromium (90.0.4430.72~linuxmint1) unstable; urgency=medium
+
+  * 90.0.4430.72
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 15 Apr 2021 01:30:38 +0100
+
+chromium (89.0.4389.128~linuxmint1) unstable; urgency=medium
+
+  * 89.0.4389.128
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 13 Apr 2021 22:53:06 +0100
+
+chromium (89.0.4389.114~linuxmint1) unstable; urgency=medium
+
+  * 89.0.4389.114
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 30 Mar 2021 19:59:06 +0100
+
+chromium (89.0.4389.90~linuxmint1) unstable; urgency=medium
+
+  * 89.0.4389.90
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 12 Mar 2021 20:59:16 +0000
+
+chromium (89.0.4389.82~linuxmint1) unstable; urgency=medium
+
+  * 89.0.4389.82
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 05 Mar 2021 21:38:06 +0000
+
+chromium (89.0.4389.72~linuxmint1) unstable; urgency=medium
+
+  * 89.0.4389.72
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 02 Mar 2021 21:56:26 +0000
+
+chromium (88.0.4324.182~linuxmint1) unstable; urgency=medium
+
+  * 88.0.4324.182
+
+ -- Linux Mint <root@linuxmint.com>  Fri, 19 Feb 2021 18:20:31 +0000
+
+chromium (88.0.4324.150~linuxmint1) unstable; urgency=medium
+
+  * 88.0.4324.150
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 04 Feb 2021 19:32:08 +0000
+
+chromium (88.0.4324.146~linuxmint1) unstable; urgency=medium
+
+  * 88.0.4324.146
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 02 Feb 2021 19:53:08 +0000
+
+chromium (88.0.4324.96~linuxmint2) unstable; urgency=medium
+
+  * 88.0.4324.96
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 27 Jan 2021 06:06:39 +0000
+
+chromium (88.0.4324.96~linuxmint1) unstable; urgency=medium
+
+  * 88.0.4324.96
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 19 Jan 2021 23:14:50 +0000
+
+chromium (87.0.4280.141~linuxmint1) unstable; urgency=medium
+
+  * 87.0.4280.141
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 06 Jan 2021 20:42:30 +0000
+
+chromium (87.0.4280.88~linuxmint1) unstable; urgency=medium
+
+  * 87.0.4280.88
+
+ -- Linux Mint <root@linuxmint.com>  Thu, 03 Dec 2020 02:51:12 +0000
+
+chromium (87.0.4280.66~linuxmint1) unstable; urgency=medium
+
+  * 87.0.4280.66
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 17 Nov 2020 18:58:07 +0000
+
+chromium (86.0.4240.198~linuxmint1) unstable; urgency=medium
+
+  * 86.0.4240.198
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 11 Nov 2020 20:33:12 +0000
+
+chromium (86.0.4240.193~linuxmint1) unstable; urgency=medium
+
+  * 86.0.4240.193
+
+ -- Linux Mint <root@linuxmint.com>  Mon, 09 Nov 2020 19:12:07 +0000
+
+chromium (86.0.4240.183~linuxmint1) unstable; urgency=medium
+
+  * 86.0.4240.183
+
+ -- Linux Mint <root@linuxmint.com>  Wed, 04 Nov 2020 15:06:03 +0000
+
+chromium (86.0.4240.111~linuxmint1) unstable; urgency=medium
+
+  * 86.0.4240.111
+
+ -- Linux Mint <root@linuxmint.com>  Tue, 27 Oct 2020 09:20:55 -0400
+
+chromium (86.0.4240.75~linuxmint1) UNRELEASED; urgency=medium
+
+  * New release 86
+
+ -- Michael Webster <miketwebster@gmail.com>  Thu, 08 Oct 2020 18:51:20 -0400
+
+chromium (85.0.4183.121~linuxmint1) unstable; urgency=medium
+
+  * Initial testing
+
+ -- Michael Webster <miketwebster@gmail.com>  Sat, 1 Oct 2020 09:50:02 +0000

@@ -1,0 +1,223 @@
+--- b/media/gpu/BUILD.gn
++++ a/media/gpu/BUILD.gn
+@@ -311,7 +311,8 @@
+     "//ui/gfx/geometry",
+   ]
+ 
++  if ((is_chromeos_ash && use_vaapi) || is_win) {
++    assert(use_libgav1_parser)
+-  if (use_libgav1_parser) {
+     sources += [
+       "av1_decoder.cc",
+       "av1_decoder.h",
+@@ -502,7 +503,7 @@
+     sources += [ "vp8_decoder_unittest.cc" ]
+   }
+ 
++  if ((is_chromeos_ash && use_vaapi) || is_win) {
+-  if (use_libgav1_parser) {
+     sources += [ "av1_decoder_unittest.cc" ]
+     deps += [
+       "//build:chromeos_buildflags",
+@@ -611,7 +612,7 @@
+   }
+ }
+ 
++if ((is_chromeos_ash && use_vaapi) || is_win) {
+-if (use_libgav1_parser) {
+   fuzzer_test("media_av1_decoder_fuzzer") {
+     sources = [ "av1_decoder_fuzzertest.cc" ]
+     deps = [
+--- b/media/gpu/vaapi/BUILD.gn
++++ a/media/gpu/vaapi/BUILD.gn
+@@ -30,11 +30,8 @@
+ }
+ 
+ source_set("vaapi") {
+-  assert(use_libgav1_parser)
+   defines = [ "MEDIA_GPU_IMPLEMENTATION" ]
+   sources = [
+-    "av1_vaapi_video_decoder_delegate.cc",
+-    "av1_vaapi_video_decoder_delegate.h",
+     "h264_encoder.cc",
+     "h264_encoder.h",
+     "h264_vaapi_video_decoder_delegate.cc",
+@@ -115,7 +112,10 @@
+   ]
+ 
+   if (is_chromeos_ash) {
++    assert(use_libgav1_parser)
+     sources += [
++      "av1_vaapi_video_decoder_delegate.cc",
++      "av1_vaapi_video_decoder_delegate.h",
+       "vaapi_jpeg_encode_accelerator.cc",
+       "vaapi_jpeg_encode_accelerator.h",
+       "vaapi_mjpeg_decode_accelerator.cc",
+--- b/media/gpu/vaapi/vaapi_common.cc
++++ a/media/gpu/vaapi/vaapi_common.cc
+@@ -66,6 +66,7 @@
+   return new VaapiVP9Picture(va_surface_);
+ }
+ 
++#if BUILDFLAG(IS_CHROMEOS_ASH)
+ VaapiAV1Picture::VaapiAV1Picture(
+     scoped_refptr<VASurface> display_va_surface,
+     scoped_refptr<VASurface> reconstruct_va_surface)
+@@ -78,5 +79,5 @@
+   return base::MakeRefCounted<VaapiAV1Picture>(display_va_surface_,
+                                                reconstruct_va_surface_);
+ }
++#endif  // BUILDFLAG(IS_CHROMEOS_ASH)
+-
+ }  // namespace media
+--- b/media/gpu/vaapi/vaapi_common.h
++++ a/media/gpu/vaapi/vaapi_common.h
+@@ -5,7 +5,6 @@
+ #define MEDIA_GPU_VAAPI_VAAPI_COMMON_H_
+ 
+ #include "build/chromeos_buildflags.h"
+-#include "media/gpu/av1_picture.h"
+ #include "media/gpu/h264_dpb.h"
+ #include "media/gpu/vaapi/va_surface.h"
+ #include "media/gpu/vp8_picture.h"
+@@ -16,6 +15,10 @@
+ #include "media/gpu/h265_dpb.h"
+ #endif
+ 
++#if BUILDFLAG(IS_CHROMEOS_ASH)
++#include "media/gpu/av1_picture.h"
++#endif  // BUILDFLAG(IS_CHROMEOS_ASH)
++
+ namespace media {
+ 
+ // These picture classes derive from platform-independent, codec-specific
+@@ -126,6 +129,7 @@
+   DISALLOW_COPY_AND_ASSIGN(VaapiVP9Picture);
+ };
+ 
++#if BUILDFLAG(IS_CHROMEOS_ASH)
+ class VaapiAV1Picture : public AV1Picture {
+  public:
+   VaapiAV1Picture(scoped_refptr<VASurface> display_va_surface,
+@@ -159,7 +163,7 @@
+   scoped_refptr<VASurface> display_va_surface_;
+   scoped_refptr<VASurface> reconstruct_va_surface_;
+ };
++#endif  // BUILDFLAG(IS_CHROMEOS_ASH)
+-
+ }  // namespace media
+ 
+ #endif  // MEDIA_GPU_VAAPI_VAAPI_COMMON_H_
+--- b/media/gpu/vaapi/vaapi_unittest.cc
++++ a/media/gpu/vaapi/vaapi_unittest.cc
+@@ -43,7 +43,12 @@
+     {VP8PROFILE_ANY, VAProfileVP8Version0_3},
+     {VP9PROFILE_PROFILE0, VAProfileVP9Profile0},
+     {VP9PROFILE_PROFILE2, VAProfileVP9Profile2},
++#if BUILDFLAG(IS_CHROMEOS_ASH)
++    // TODO(hiroh): Remove if-macro once libva for linux-chrome is upreved to
++    // 2.9.0 or newer.
++    // https://source.chromium.org/chromium/chromium/src/+/master:build/linux/sysroot_scripts/generated_package_lists/sid.amd64
+     {AV1PROFILE_PROFILE_MAIN, VAProfileAV1Profile0},
++#endif
+ #if BUILDFLAG(ENABLE_PLATFORM_HEVC)
+     {HEVCPROFILE_MAIN, VAProfileHEVCMain},
+     {HEVCPROFILE_MAIN10, VAProfileHEVCMain10},
+@@ -68,7 +73,12 @@
+     {"VAProfileVP8Version0_3", VAProfileVP8Version0_3},
+     {"VAProfileVP9Profile0", VAProfileVP9Profile0},
+     {"VAProfileVP9Profile2", VAProfileVP9Profile2},
++#if BUILDFLAG(IS_CHROMEOS_ASH)
++    // TODO(hiroh): Remove if-macro once libva for linux-chrome is upreved to
++    // 2.9.0 or newer.
++    // https://source.chromium.org/chromium/chromium/src/+/master:build/linux/sysroot_scripts/generated_package_lists/sid.amd64
+     {"VAProfileAV1Profile0", VAProfileAV1Profile0},
++#endif
+ #if BUILDFLAG(ENABLE_PLATFORM_HEVC)
+     {"VAProfileHEVCMain", VAProfileHEVCMain},
+     {"VAProfileHEVCMain10", VAProfileHEVCMain10},
+--- b/media/gpu/vaapi/vaapi_video_decoder.cc
++++ a/media/gpu/vaapi/vaapi_video_decoder.cc
+@@ -21,12 +21,10 @@
+ #include "media/base/media_switches.h"
+ #include "media/base/video_frame.h"
+ #include "media/base/video_util.h"
+-#include "media/gpu/av1_decoder.h"
+ #include "media/gpu/chromeos/dmabuf_video_frame_pool.h"
+ #include "media/gpu/chromeos/platform_video_frame_utils.h"
+ #include "media/gpu/gpu_video_decode_accelerator_helpers.h"
+ #include "media/gpu/macros.h"
+-#include "media/gpu/vaapi/av1_vaapi_video_decoder_delegate.h"
+ #include "media/gpu/vaapi/h264_vaapi_video_decoder_delegate.h"
+ #include "media/gpu/vaapi/va_surface.h"
+ #include "media/gpu/vaapi/vaapi_utils.h"
+@@ -41,6 +39,8 @@
+ 
+ #if BUILDFLAG(IS_CHROMEOS_ASH)
+ #include "chromeos/components/cdm_factory_daemon/chromeos_cdm_factory.h"
++#include "media/gpu/av1_decoder.h"
++#include "media/gpu/vaapi/av1_vaapi_video_decoder_delegate.h"
+ #endif  // BUILDFLAG(IS_CHROMEOS_ASH)
+ 
+ namespace media {
+@@ -961,6 +961,7 @@
+         new H265Decoder(std::move(accelerator), profile_, color_space_));
+   }
+ #endif  // BUILDFLAG(ENABLE_PLATFORM_HEVC)
++#if BUILDFLAG(IS_CHROMEOS_ASH)
+   else if (profile_ >= AV1PROFILE_MIN && profile_ <= AV1PROFILE_MAX) {
+     auto accelerator =
+         std::make_unique<AV1VaapiVideoDecoderDelegate>(this, vaapi_wrapper_);
+@@ -968,6 +969,7 @@
+ 
+     decoder_.reset(new AV1Decoder(std::move(accelerator), profile_));
+   }
++#endif  // BUILDFLAG(IS_CHROMEOS_ASH)
+   else {
+     return Status(StatusCode::kDecoderUnsupportedProfile)
+         .WithData("profile", profile_);
+--- b/media/gpu/vaapi/vaapi_wrapper.cc
++++ a/media/gpu/vaapi/vaapi_wrapper.cc
+@@ -402,7 +402,12 @@
+           {VP9PROFILE_PROFILE2, VAProfileVP9Profile2},
+       // VaapiWrapper does not support Profile 3.
+       //{VP9PROFILE_PROFILE3, VAProfileVP9Profile3},
++#if BUILDFLAG(IS_CHROMEOS_ASH)
++          // TODO(hiroh): Remove if-macro once libva for linux-chrome is upreved
++          // to 2.9.0 or newer.
++          // https://source.chromium.org/chromium/chromium/src/+/master:build/linux/sysroot_scripts/generated_package_lists/sid.amd64
+           {AV1PROFILE_PROFILE_MAIN, VAProfileAV1Profile0},
++#endif  // BUILDFLAG(IS_CHROMEOS_ASH)
+         // VaapiWrapper does not support AV1 Profile 1.
+         // {AV1PROFILE_PROFILE_HIGH, VAProfileAV1Profile1},
+ #if BUILDFLAG(ENABLE_PLATFORM_HEVC)
+@@ -439,8 +444,13 @@
+ 
+ bool IsBlockedDriver(VaapiWrapper::CodecMode mode, VAProfile va_profile) {
+   if (!IsModeEncoding(mode)) {
++#if BUILDFLAG(IS_CHROMEOS_ASH)
++    if (va_profile == VAProfileAV1Profile0 &&
++        !base::FeatureList::IsEnabled(kVaapiAV1Decoder)) {
++      return true;
++    }
++#endif  // BUILDFLAG(IS_CHROMEOS_ASH)
++    return false;
+-    return va_profile == VAProfileAV1Profile0 &&
+-           !base::FeatureList::IsEnabled(kVaapiAV1Decoder);
+   }
+ 
+   // TODO(posciak): Remove once VP8 encoding is to be enabled by default.
+--- b/third_party/libgav1/options.gni
++++ a/third_party/libgav1/options.gni
+@@ -7,10 +7,9 @@
+ 
+ declare_args() {
+   # Enable libgav1 decoder.
+-  # TODO(b/179825724): enable on LaCrOS.
+   enable_libgav1_decoder =
+       is_chromeos_ash && (target_cpu == "arm" || target_cpu == "arm64")
+   use_libgav1_parser =
++      (is_chromeos_ash || is_win) &&
+-      (is_chromeos || is_linux || is_win) &&
+       (target_cpu == "x86" || target_cpu == "x64" || target_cpu == "arm64")
+ }

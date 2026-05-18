@@ -1,0 +1,4 @@
+chown root:root /usr/lib/mythicsurf/mythicsurf-sandbox
+chmod 4555 /usr/lib/mythicsurf/mythicsurf-sandbox
+
+#DEBHELPER#

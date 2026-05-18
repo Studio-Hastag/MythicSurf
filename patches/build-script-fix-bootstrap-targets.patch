@@ -1,0 +1,19 @@
+Description: Add armhf and arm64 to the bootstrap targets, to allow building an instrumented compiler on those platforms too
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+Forwarded: not-needed
+
+Index: chromium-135.0.7049.52/tools/clang/scripts/build.py
+===================================================================
+--- chromium-135.0.7049.52.orig/tools/clang/scripts/build.py
++++ chromium-135.0.7049.52/tools/clang/scripts/build.py
+@@ -1007,9 +1007,7 @@ def main():
+       runtimes.append('compiler-rt')
+ 
+     bootstrap_targets = 'X86'
+-    if sys.platform == 'darwin':
+-      # Need ARM and AArch64 for building the ios clang_rt.
+-      bootstrap_targets += ';ARM;AArch64'
++    bootstrap_targets += ';ARM;AArch64'
+     bootstrap_args = base_cmake_args + ccache_cmake_args + [
+         '-DLLVM_TARGETS_TO_BUILD=' + bootstrap_targets,
+         '-DLLVM_ENABLE_PROJECTS=clang;lld',

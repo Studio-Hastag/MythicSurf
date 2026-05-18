@@ -1,0 +1,34 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Chromium
+Upstream-Contact: Chromium Developers <https://chromium.googlesource.com/chromium/src/>
+Source: https://chromium.googlesource.com/chromium/src/
+
+Files: *
+Copyright:
+  2006-2026 The Chromium Authors
+  2024-2026 Studio Hastag <contact@hastag.fr>
+License: BSD-3-Clause
+ Chromium is licensed under the BSD 3-Clause license.
+ .
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+  * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+  * Neither the name of the Chromium project nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+ .
+ On Debian systems, the complete text of the BSD license
+ can be found in /usr/share/common-licenses/BSD.
+ 
+
+Files: debian/*
+Copyright:
+  2024-2026 Studio Hastag <contact@hastag.fr>
+License: BSD-3-Clause
+ The Debian packaging for MythicSurf is licensed under the same terms
+ as Chromium (BSD-3-Clause).
+ 

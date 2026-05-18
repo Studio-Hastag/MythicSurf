@@ -1,0 +1,17 @@
+Description: Define missing symbol from our older rusty world
+Author: Nathan Pratta Teodosio <nteodosio@ubuntu.com>
+Forwarded: not-yet
+
+--- a/build/rust/allocator/lib.rs
++++ b/build/rust/allocator/lib.rs
+@@ -90,4 +90,10 @@
+     fn __rust_no_alloc_shim_is_unstable_v2() {}
+ 
++    #[rustc_std_internal_symbol]
++    #[linkage = "weak"]
++    fn __rust_no_alloc_shim_is_unstable() {}
++    #[rustc_std_internal_symbol]
++    #[linkage = "weak"]
++    fn __rust_alloc_error_handler_should_panic() {}
+     // Mangle the symbol name as rustc expects.
+     #[rustc_std_internal_symbol] 

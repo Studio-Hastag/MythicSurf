@@ -1,0 +1,39 @@
+Description: Download the PGO training file earlier in the build sequence, because Launchpad builders have a timeout for how long they are allowed to access the internet (through a proxy) starting from the start of the build.
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+Forwarded: not-needed
+
+--- a/tools/clang/scripts/build.py
++++ b/tools/clang/scripts/build.py
+@@ -481,6 +481,15 @@ def compiler_rt_cmake_flags(*, sanitizer
+   return args
+ 
+ 
++def DownloadPGOTrainingFile():
++  curdir = os.getcwd()
++  os.chdir(THIRD_PARTY_DIR)
++  training_source = 'pgo_training-1.ii'
++  with open(training_source, 'wb') as f:
++    DownloadUrl(CDS_URL + '/' + training_source, f)
++  os.chdir(curdir)
++
++
+ def gn_arg(v):
+   if v == 'True':
+     return True
+@@ -617,4 +626,6 @@ def main():
+   if not args.use_system_cmake:
+     AddCMakeToPath()
++  if args.pgo:
++    DownloadPGOTrainingFile()
+
+   if sys.platform == 'win32':
+@@ -908,8 +920,7 @@ def main():
+     # from PGO as well. Perhaps the training could be done asynchronously by
+     # dedicated buildbots that upload profiles to the cloud.
+     training_source = 'pgo_training-1.ii'
+-    with open(training_source, 'wb') as f:
+-      DownloadUrl(CDS_URL + '/' + training_source, f)
++    shutil.copy(os.path.join(THIRD_PARTY_DIR, training_source), os.getcwd())
+     train_cmd = [os.path.join(LLVM_INSTRUMENTED_DIR, 'bin', 'clang++'),
+                 '-target', 'x86_64-unknown-unknown', '-O2', '-g', '-std=c++14',
+                  '-fno-exceptions', '-fno-rtti', '-w', '-c', training_source]

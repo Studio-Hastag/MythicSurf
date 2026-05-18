@@ -1,0 +1,157 @@
+#!/usr/bin/python3
+import os
+import sys
+import datetime
+import math
+import shutil
+import json
+import re
+import pkgconfig
+from urllib.parse import urlparse
+import platform
+from build_vars import *
+
+parallel = sys.argv[3]
+
+def new_section(msg):
+    print("\n*******************************************************")
+    print("* %s" % msg)
+    print("*******************************************************\n")
+
+def exit_if_fail_os_system(command):
+    if (os.system(command)):
+        exit(1)
+
+def exit_if_fail_os_makedirs(command):
+    try:
+        os.makedirs(command, exist_ok=True)
+    except:
+        exit(1)
+
+#####################################################################
+# Build
+#####################################################################
+new_section("Getting build prereqs")
+
+os.chdir(CHROME_SOURCE_DIR)
+exit_if_fail_os_makedirs(BUILD_OUTPUT_DIR)
+
+# Fetch the dirmd executable from Google's servers
+# (it is not included in the source tarball).
+#exit_if_fail_os_system("third_party/depot_tools/dirmd help")
+#exit_if_fail_os_system("[ -x ./third_party/depot_tools/.cipd_bin/dirmd ]")
+
+if IMAGE_CODENAME in ("una", "elsie", "virginia"):
+    exit_if_fail_os_system("../data/build-libva-new.sh")
+if IMAGE_CODENAME in ("virginia",):
+    exit_if_fail_os_system("../data/build-pipewire.sh")
+
+
+exit_if_fail_os_system("third_party/node/update_node_binaries")
+exit_if_fail_os_system("tools/clang/scripts/update.py")
+exit_if_fail_os_system("python3 tools/rust/update_rust.py")
+
+new_section("Environment pre-config")
+print(os.environ)
+new_section("Configure")
+# Setup, bootstrap
+os.putenv("CXX", "%s/third_party/llvm-build/Release+Asserts/bin/clang++" % CHROME_SOURCE_DIR)
+os.putenv("AR", "%s/third_party/llvm-build/Release+Asserts/bin/llvm-ar" % CHROME_SOURCE_DIR)
+exit_if_fail_os_system("cp tools/gn/bootstrap/last_commit_position.h tools/gn/src/")
+
+old_cxx_flags = os.environ["CXXFLAGS"]
+
+if IMAGE_CODENAME == "faye":
+    # gn build currently fails in bookworm because of deprecation in src/base/json/json_parser.cc
+    os.environ["CXXFLAGS"] = old_cxx_flags + " -Wno-deprecated-declarations"
+
+exit_if_fail_os_system("python3 tools/gn/bootstrap/bootstrap.py --build-path=%s --skip-generate-buildfiles" % BUILD_OUTPUT_DIR)
+os.environ["CXXFLAGS"] = old_cxx_flags
+
+# Configure
+
+gn = "args.gn.%s" % IMAGE_CODENAME
+
+exit_if_fail_os_system("cp %s/data/%s %s/args.gn" % (curdir, gn, BUILD_OUTPUT_DIR))
+exit_if_fail_os_system("%s/gn gen %s" % (BUILD_OUTPUT_DIR, BUILD_OUTPUT_DIR))
+
+start = datetime.datetime.today()
+new_section("Building - started: %s" % start.isoformat())
+
+# Build
+exit_if_fail_os_system("ninja -j%s -C %s chrome chrome_sandbox chromedriver" % (parallel, BUILD_OUTPUT_DIR))
+
+end = datetime.datetime.today()
+delta = end - start
+elapsed = "%s minutes" % math.floor(delta.seconds / 60)
+new_section("Build finished: %s (took %s)" % (end.isoformat(), elapsed))
+
+#####################################################################
+# Install
+#####################################################################
+
+# Install binary and deps to tree
+new_section("Installing files to tree")
+
+exit_if_fail_os_makedirs("%s/usr/lib/chromium" % STAGING_DIR)
+
+lib_files = [
+    "chrome",
+    "chrome_*.pak",
+    "chrome_crashpad_handler",
+    "resources.pak",
+    "icudtl.dat",
+    "libEGL.so",
+    "libGLESv2.so",
+    "libffmpeg.so",
+    "libvk_swiftshader.so",
+    "libvulkan.so.1",
+    "vk_swiftshader_icd.json",
+    "v8_context_snapshot.bin"
+]
+
+# version per https://chromium.googlesource.com/chromium/src/+/4a7dc216ff1c37d7480d4db2407f13320e9cca41/ui/qt/qt_shim_moc.cc
+
+#if pkgconfig.installed("Qt5Core", ">= 5.15.2"):
+#    lib_files.append("libqt5_shim.so")
+
+#  for mint21, but not lmde6? why
+if os.path.exists("%s/libminigbm.so" % BUILD_OUTPUT_DIR):
+    lib_files.append("libminigbm.so")
+
+for f in lib_files:
+    exit_if_fail_os_system("cp %s/%s %s/usr/lib/chromium" % (BUILD_OUTPUT_DIR, f, STAGING_DIR))
+
+# This needs to end up the same name as the /usr/bin file, or else man chromium will work, but
+# not chromium --help.
+exit_if_fail_os_system("mv %s/usr/lib/chromium/chrome %s/usr/lib/chromium/chromium" % (STAGING_DIR, STAGING_DIR))
+
+# Link binary to /usr/bin/chromium
+exit_if_fail_os_makedirs("%s/usr/bin" % STAGING_DIR)
+exit_if_fail_os_system("cp %s/data/chromium.bin.%s %s/usr/bin/chromium" % (curdir, IMAGE_CODENAME, STAGING_DIR))
+exit_if_fail_os_system("cp %s/chromedriver %s/usr/bin/" % (BUILD_OUTPUT_DIR, STAGING_DIR))
+exit_if_fail_os_system("chmod +x %s/usr/bin/chromium" % STAGING_DIR)
+exit_if_fail_os_system("chmod +x %s/usr/bin/chromedriver" % STAGING_DIR)
+
+# Apparmor profile (wilma)--------------------- supplied by ubuntu-system-adjustments now.
+#if IMAGE_CODENAME == "wilma":
+#    exit_if_fail_os_makedirs("%s/etc/apparmor.d" % STAGING_DIR)
+#    exit_if_fail_os_system("cp %s/data/chromium.apparmor %s/etc/apparmor.d/mint-chromium" % (curdir, STAGING_DIR))
+
+exit_if_fail_os_system("cp %s/chrome_sandbox %s/usr/lib/chromium/chrome-sandbox" % (BUILD_OUTPUT_DIR, STAGING_DIR))
+
+# Locales
+new_section("Locale stuff")
+
+exit_if_fail_os_makedirs("%s/usr/lib/chromium/locales" % STAGING_DIR)
+exit_if_fail_os_system("cp %s/locales/*.pak %s/usr/lib/chromium/locales/" % (BUILD_OUTPUT_DIR, STAGING_DIR))
+
+# Manpage
+exit_if_fail_os_makedirs("%s/usr/share/man/man1" % STAGING_DIR)
+exit_if_fail_os_system('sed \
+              -e "s/@@PACKAGE@@/chromium/g" \
+              -e "s/@@MENUNAME@@/chromium/g" \
+              %s/chrome/app/resources/manpage.1.in \
+                  > %s/usr/share/man/man1/chromium.1' % (CHROME_SOURCE_DIR, STAGING_DIR)
+)
+exit_if_fail_os_system("gzip -9n -f %s/usr/share/man/man1/chromium.1" % STAGING_DIR)

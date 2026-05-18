@@ -1,0 +1,23 @@
+Description: ensure lld is explicitly linked against libatomic, otherwise it fails with:
+  ld.lld: error: undefined symbol: __atomic_load
+  >>> referenced by DebugTypes.cpp
+  >>>               DebugTypes.cpp.o:(lld::coff::TypeMerger::mergeTypesWithGHash()::$_4::operator()(unsigned int) const) in archive lib/liblldCOFF.a
+
+  ld.lld: error: undefined symbol: __atomic_compare_exchange
+  >>> referenced by DebugTypes.cpp
+  >>>               DebugTypes.cpp.o:(lld::coff::TypeMerger::mergeTypesWithGHash()::$_4::operator()(unsigned int) const) in archive lib/liblldCOFF.a
+ This is required when building on i386 only, other architectures (amd64, armhf, arm64) are fine without it.
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+
+--- a/third_party/llvm/llvm/cmake/modules/CheckAtomic.cmake
++++ b/third_party/llvm/llvm/cmake/modules/CheckAtomic.cmake
+@@ -46,6 +46,9 @@ if(MSVC)
+ elseif(LLVM_COMPILER_IS_GCC_COMPATIBLE)
+   # First check if atomics work without the library.
+   check_working_cxx_atomics(HAVE_CXX_ATOMICS_WITHOUT_LIB)
++  if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "i686")
++    set(HAVE_CXX_ATOMICS_WITHOUT_LIB False)
++  endif()
+   # If not, check if the library exists, and atomics work with it.
+   if(NOT HAVE_CXX_ATOMICS_WITHOUT_LIB)
+     check_library_exists(atomic __atomic_fetch_add_4 "" HAVE_LIBATOMIC)

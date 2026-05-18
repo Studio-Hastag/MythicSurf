@@ -1,0 +1,23 @@
+Description: try an alternative location for the Widevine CDM library
+ ($HOME/.local/lib/WidevineCdm/ - snap-friendly, see https://launchpad.net/bugs/1738149)
+ The manifest lives at the top level, whereas libwidevinecdm.so is inside
+ a platform specific directory, see media::GetPlatformSpecificDirectory(…).
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+Forwarded: not-needed
+
+Index: chromium-135.0.7049.52/chrome/common/chrome_paths.cc
+===================================================================
+--- chromium-135.0.7049.52.orig/chrome/common/chrome_paths.cc
++++ chromium-135.0.7049.52/chrome/common/chrome_paths.cc
+@@ -385,6 +385,11 @@ bool PathProvider(int key, base::FilePat
+ 
+ #if BUILDFLAG(ENABLE_WIDEVINE)
+     case chrome::DIR_BUNDLED_WIDEVINE_CDM:
++      base::PathService::Get(base::DIR_HOME, &cur);
++      cur = cur.Append(FILE_PATH_LITERAL(".local/lib"))
++               .AppendASCII(kWidevineCdmBaseDirectory);
++      if (base::PathExists(cur))
++        break;
+       if (!GetComponentDirectory(&cur)) {
+         return false;
+       }

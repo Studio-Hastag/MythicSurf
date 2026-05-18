@@ -1,0 +1,25 @@
+Description: Partially revert 6f23ef1 to fix build failure
+ ../../base/process/memory_linux.cc:106:13: error: use of undeclared identifier '__libc_malloc'
+Origin: https://chromium.googlesource.com/chromium/src/+/6f23ef1f7305a75c2db96afde705bddcddde1f05
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+Forwarded: not-needed
+Last-Update: 2024-06-10
+
+Index: chromium-135.0.7049.52/base/process/memory_linux.cc
+===================================================================
+--- chromium-135.0.7049.52.orig/base/process/memory_linux.cc
++++ chromium-135.0.7049.52/base/process/memory_linux.cc
+@@ -39,6 +39,13 @@ void ReleaseReservationOrTerminate() {
+ 
+ }  // namespace
+ 
++#if !PA_BUILDFLAG(USE_ALLOCATOR_SHIM) && defined(LIBC_GLIBC)
++extern "C" {
++void* __libc_malloc(size_t size);
++void __libc_free(void*);
++}  // extern C
++#endif
++
+ void EnableTerminationOnHeapCorruption() {
+   // On Linux, there nothing to do AFAIK.
+ }

@@ -1,0 +1,68 @@
+Description: Report video decoder on stderr when the
+flag --enable-logging=stderr is given.
+Author: Nathan Teodosio <nathan.teodosio@canonical.com>
+Forwarded: not-needed
+
+Index: chromium-135.0.7049.52/media/base/decoder.cc
+===================================================================
+--- chromium-135.0.7049.52.orig/media/base/decoder.cc
++++ chromium-135.0.7049.52/media/base/decoder.cc
+@@ -3,7 +3,7 @@
+ // found in the LICENSE file.
+ 
+ #include "media/base/decoder.h"
+-
++#include "base/logging.h"
+ #include "base/notreached.h"
+ 
+ namespace media {
+@@ -23,34 +23,49 @@ bool Decoder::SupportsDecryption() const
+ std::string GetDecoderName(VideoDecoderType type) {
+   switch (type) {
+     case VideoDecoderType::kUnknown:
++      LOG(INFO) << "Unknown Video Decoder";
+       return "Unknown Video Decoder";
+     case VideoDecoderType::kFFmpeg:
++      LOG(INFO) << "FFmpegVideoDecoder";
+       return "FFmpegVideoDecoder";
+     case VideoDecoderType::kVpx:
++      LOG(INFO) << "VpxVideoDecoder";
+       return "VpxVideoDecoder";
+     case VideoDecoderType::kAom:
++      LOG(INFO) << "AomVideoDecoder";
+       return "AomVideoDecoder";
+     case VideoDecoderType::kMojo:
++      LOG(INFO) << "MojoVideoDecoder";
+       return "MojoVideoDecoder";
+     case VideoDecoderType::kDecrypting:
++      LOG(INFO) << "DecryptingVideoDecoder";
+       return "DecryptingVideoDecoder";
+     case VideoDecoderType::kDav1d:
++      LOG(INFO) << "Dav1dVideoDecoder";
+       return "Dav1dVideoDecoder";
+     case VideoDecoderType::kFuchsia:
++      LOG(INFO) << "FuchsiaVideoDecoder";
+       return "FuchsiaVideoDecoder";
+     case VideoDecoderType::kMediaCodec:
++      LOG(INFO) << "MediaCodecVideoDecoder";
+       return "MediaCodecVideoDecoder";
+     case VideoDecoderType::kD3D11:
++      LOG(INFO) << "D3D11VideoDecoder";
+       return "D3D11VideoDecoder";
+     case VideoDecoderType::kVaapi:
++      LOG(INFO) << "VaapiVideoDecoder";
+       return "VaapiVideoDecoder";
+     case VideoDecoderType::kBroker:
++      LOG(INFO) << "VideoDecoderBroker";
+       return "VideoDecoderBroker";
+     case VideoDecoderType::kVda:
++      LOG(INFO) << "VDAVideoDecoder";
+       return "VDAVideoDecoder";
+     case VideoDecoderType::kV4L2:
++      LOG(INFO) << "V4L2VideoDecoder";
+       return "V4L2VideoDecoder";
+     case VideoDecoderType::kTesting:
++      LOG(INFO) << "Testing or Mock Video decoder";
+       return "Testing or Mock Video decoder";
+     case VideoDecoderType::kOutOfProcess:
+       return "OOPVideoDecoder";

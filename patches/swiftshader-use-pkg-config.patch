@@ -1,0 +1,57 @@
+Description: Have gn use pkg-config to make swiftshader depend on x11-xcb,
+ so that it is able to find it in non-standard locations,
+ such as where the gnome-3-38-2004-sdk snap exposes it.
+Forwarded: not-yet
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+
+--- a/third_party/swiftshader/src/WSI/BUILD.gn
++++ b/third_party/swiftshader/src/WSI/BUILD.gn
+@@ -23,6 +23,12 @@ config("WSI_metal_weak_framework") {
+       "Metal",
+     ]
+   }
++  if (is_linux) {
++    import("//build/config/linux/pkg_config.gni")
++    pkg_config("x11-xcb") {
++      packages = [ "x11-xcb" ]
++    }
++  }
+ }
+ 
+ swiftshader_source_set("WSI") {
+@@ -94,4 +100,8 @@ swiftshader_source_set("WSI") {
+   }
+ 
+   configs = [ "../Vulkan:swiftshader_libvulkan_private_config" ]
++
++  if (is_linux) {
++    configs += [ ":x11-xcb" ]
++  }
+ }
+--- a/third_party/swiftshader/src/Vulkan/BUILD.gn
++++ b/third_party/swiftshader/src/Vulkan/BUILD.gn
+@@ -66,6 +66,13 @@ config("swiftshader_libvulkan_private_co
+      "SWIFTSHADER_LEGACY_PRECISION=true",  # TODO(chromium:1299047)
+      "SWIFTSHADER_ZERO_INITIALIZE_DEVICE_MEMORY",
+   ]
++
++  if (is_linux) {
++    import("//build/config/linux/pkg_config.gni")
++    pkg_config("x11-xcb") {
++      packages = [ "x11-xcb" ]
++    }
++  }
+ }
+ 
+ swiftshader_source_set("swiftshader_libvulkan_headers") {
+@@ -228,6 +235,10 @@ swiftshader_shared_library("swiftshader_
+   public_deps = [
+     ":swiftshader_libvulkan_headers",
+   ]
++
++  if (is_linux) {
++    configs += [ ":x11-xcb" ]
++  }
+ }
+ 
+ # Generates an ICD JSON file that can be used by all targets in this GN build

@@ -1,0 +1,13 @@
+Description: do not rely on the dirmd tool that is not part of the source tarball
+(see https://chromium.googlesource.com/chromium/src/+/aea3e89fb1730a63ae4b99b4e7169f9e15ab96b5)
+--- a/tools/metrics/histograms/expand_owners.py
++++ b/tools/metrics/histograms/expand_owners.py
+@@ -400,8 +400,3 @@
+         continue
+ 
+       _UpdateHistogramOwners(histogram, owner, owners_to_add)
+-
+-      component = _ExtractComponentViaDirmd(os.path.dirname(path))
+-      if component and component not in components_with_dom_elements:
+-        components_with_dom_elements.add(component)
+-        _AddHistogramComponent(histogram, component)

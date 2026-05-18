@@ -1,0 +1,19 @@
+Description: Invoke system eu-strip, instead of the vendored copy.
+ This is because pre-built tools are only available for amd64,
+ on other architectures they have to be built, and building
+ the vendored copy of eu-strip fails with gcc 9
+ and would require cherry-picking several upstream commits.
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+Forwarded: not-needed
+
+--- a/build/linux/strip_binary.gni
++++ b/build/linux/strip_binary.gni
+@@ -44,7 +44,7 @@ template("strip_binary") {
+     ]
+     args = [
+       "--eu-strip-binary-path",
+-      rebase_path(eu_strip_binary, root_build_dir),
++      "/usr/bin/eu-strip",
+       "--symbol-output",
+       rebase_path(symbol_output, root_build_dir),
+       "--stripped-binary-output",

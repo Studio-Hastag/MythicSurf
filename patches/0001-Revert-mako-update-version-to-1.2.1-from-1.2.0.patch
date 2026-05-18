@@ -1,0 +1,679 @@
+From 1dc4453388314752172c731c396a820271e9ad9c Mon Sep 17 00:00:00 2001
+From: Michael Webster <miketwebster@gmail.com>
+Date: Mon, 11 Jul 2022 10:39:35 -0400
+Subject: [PATCH] Revert "mako: update version to 1.2.1 from 1.2.0"
+
+This reverts commit c4edcb406fe832cad04012fcbe000b8c09a836a2.
+---
+ third_party/mako/README.chromium              | 10 +++----
+ third_party/mako/mako/LICENSE                 |  4 +--
+ third_party/mako/mako/mako/__init__.py        |  4 +--
+ third_party/mako/mako/mako/_ast_util.py       |  2 +-
+ third_party/mako/mako/mako/ast.py             |  2 +-
+ third_party/mako/mako/mako/cache.py           |  2 +-
+ third_party/mako/mako/mako/cmd.py             |  2 +-
+ third_party/mako/mako/mako/codegen.py         |  2 +-
+ third_party/mako/mako/mako/compat.py          |  2 +-
+ third_party/mako/mako/mako/exceptions.py      |  2 +-
+ third_party/mako/mako/mako/ext/autohandler.py |  2 +-
+ third_party/mako/mako/mako/ext/babelplugin.py |  2 +-
+ .../mako/mako/mako/ext/beaker_cache.py        |  2 +-
+ third_party/mako/mako/mako/ext/extract.py     |  2 +-
+ .../mako/mako/mako/ext/linguaplugin.py        |  2 +-
+ .../mako/mako/mako/ext/preprocessors.py       |  2 +-
+ .../mako/mako/mako/ext/pygmentplugin.py       |  2 +-
+ third_party/mako/mako/mako/ext/turbogears.py  |  2 +-
+ third_party/mako/mako/mako/filters.py         |  2 +-
+ third_party/mako/mako/mako/lexer.py           |  9 +++---
+ third_party/mako/mako/mako/lookup.py          |  2 +-
+ third_party/mako/mako/mako/parsetree.py       |  2 +-
+ third_party/mako/mako/mako/pygen.py           | 28 ++++++-------------
+ third_party/mako/mako/mako/pyparser.py        |  2 +-
+ third_party/mako/mako/mako/template.py        |  2 +-
+ .../mako/mako/mako/testing/fixtures.py        | 10 -------
+ third_party/mako/mako/mako/util.py            |  2 +-
+ third_party/mako/mako/setup.cfg               |  7 ++---
+ .../mako/mako/test/ext/test_babelplugin.py    | 27 ++++++------------
+ .../mako/mako/test/ext/test_linguaplugin.py   |  4 +--
+ third_party/mako/mako/test/test_exceptions.py | 13 ++++++---
+ third_party/mako/mako/test/test_template.py   | 19 +++++++------
+ third_party/mako/mako/tox.ini                 |  2 +-
+ 33 files changed, 77 insertions(+), 102 deletions(-)
+
+diff --git a/third_party/mako/README.chromium b/third_party/mako/README.chromium
+index 8a76367a000..307da9d1727 100644
+--- a/third_party/mako/README.chromium
++++ b/third_party/mako/README.chromium
+@@ -1,8 +1,8 @@
+ Name: Mako Templates for Python
+ Short Name: python-mako
+ URL: https://www.makotemplates.org
+-Version: 1.2.1
+-Date: July 1, 2022
++Version: 1.2.0
++Date: March 11, 2022
+ License: MIT
+ License File: NOT_SHIPPED
+ Security Critical: no
+@@ -10,11 +10,11 @@ Security Critical: no
+ Description:
+ Template engine in Python, used for code generation in Blink.
+ 
+-Source: https://files.pythonhosted.org/packages/ad/dd/34201dae727bb183ca14fd8417e61f936fa068d6f503991f09ee3cac6697/Mako-1.2.1.tar.gz
+-SHA-256: f054a5ff4743492f1aa9ecc47172cb33b42b9d993cffcc146c9de17e717b0307
++Source: https://files.pythonhosted.org/packages/50/ec/1d687348f0954bda388bfd1330c158ba8d7dea4044fc160e74e080babdb9/Mako-1.2.0.tar.gz
++SHA-256: 9a7c7e922b87db3686210cf49d5d767033a41d4010b284e747682c92bddd8b39
+ 
+ Local Modifications:
+ * add DIR_METADATA, OWNERS, README.chromium, and .gitattributes files in this directory.
+ * run following commands to pass PRESUBMIT.
+-  $ rm -rf mako/doc/ mako/examples/ mako/Mako.egg-info mako/PKG-INFO
++  $ rm -rf mako/doc/ mako/example/ mako/Mako.egg-info mako/PKG-INFO
+   $ chmod -x mako/mako/cmd.py
+diff --git a/third_party/mako/mako/LICENSE b/third_party/mako/mako/LICENSE
+index be84a38ef9f..2342a9d3d02 100644
+--- a/third_party/mako/mako/LICENSE
++++ b/third_party/mako/mako/LICENSE
+@@ -1,4 +1,4 @@
+-Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>.
++Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>.
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy of
+ this software and associated documentation files (the "Software"), to deal in
+@@ -16,4 +16,4 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-SOFTWARE.
++SOFTWARE.
+\ No newline at end of file
+diff --git a/third_party/mako/mako/mako/__init__.py b/third_party/mako/mako/mako/__init__.py
+index f105e78cd16..5ae5501135a 100644
+--- a/third_party/mako/mako/mako/__init__.py
++++ b/third_party/mako/mako/mako/__init__.py
+@@ -1,8 +1,8 @@
+ # mako/__init__.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+ 
+ 
+-__version__ = "1.2.1"
++__version__ = "1.2.0"
+diff --git a/third_party/mako/mako/mako/_ast_util.py b/third_party/mako/mako/mako/_ast_util.py
+index 95742835f0f..b8615335d6b 100644
+--- a/third_party/mako/mako/mako/_ast_util.py
++++ b/third_party/mako/mako/mako/_ast_util.py
+@@ -1,5 +1,5 @@
+ # mako/_ast_util.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/ast.py b/third_party/mako/mako/mako/ast.py
+index a3f3ee3ec63..f879e8b4bf6 100644
+--- a/third_party/mako/mako/mako/ast.py
++++ b/third_party/mako/mako/mako/ast.py
+@@ -1,5 +1,5 @@
+ # mako/ast.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/cache.py b/third_party/mako/mako/mako/cache.py
+index db21bb3e9ea..d77be271159 100644
+--- a/third_party/mako/mako/mako/cache.py
++++ b/third_party/mako/mako/mako/cache.py
+@@ -1,5 +1,5 @@
+ # mako/cache.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/cmd.py b/third_party/mako/mako/mako/cmd.py
+index 93a6733fcba..7592fb279df 100644
+--- a/third_party/mako/mako/mako/cmd.py
++++ b/third_party/mako/mako/mako/cmd.py
+@@ -1,5 +1,5 @@
+ # mako/cmd.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/codegen.py b/third_party/mako/mako/mako/codegen.py
+index a9dbcb6799f..c897f0fff17 100644
+--- a/third_party/mako/mako/mako/codegen.py
++++ b/third_party/mako/mako/mako/codegen.py
+@@ -1,5 +1,5 @@
+ # mako/codegen.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/compat.py b/third_party/mako/mako/mako/compat.py
+index 48df30d6e22..68bc03b1dd7 100644
+--- a/third_party/mako/mako/mako/compat.py
++++ b/third_party/mako/mako/mako/compat.py
+@@ -1,5 +1,5 @@
+ # mako/compat.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/exceptions.py b/third_party/mako/mako/mako/exceptions.py
+index 31c695fd78f..a0a5feca77d 100644
+--- a/third_party/mako/mako/mako/exceptions.py
++++ b/third_party/mako/mako/mako/exceptions.py
+@@ -1,5 +1,5 @@
+ # mako/exceptions.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/ext/autohandler.py b/third_party/mako/mako/mako/ext/autohandler.py
+index 5bcfc28584b..e8fdac89f61 100644
+--- a/third_party/mako/mako/mako/ext/autohandler.py
++++ b/third_party/mako/mako/mako/ext/autohandler.py
+@@ -1,5 +1,5 @@
+ # ext/autohandler.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/ext/babelplugin.py b/third_party/mako/mako/mako/ext/babelplugin.py
+index 907d0b80869..f015ec25477 100644
+--- a/third_party/mako/mako/mako/ext/babelplugin.py
++++ b/third_party/mako/mako/mako/ext/babelplugin.py
+@@ -1,5 +1,5 @@
+ # ext/babelplugin.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/ext/beaker_cache.py b/third_party/mako/mako/mako/ext/beaker_cache.py
+index 9aa35b06842..a40b09cf488 100644
+--- a/third_party/mako/mako/mako/ext/beaker_cache.py
++++ b/third_party/mako/mako/mako/ext/beaker_cache.py
+@@ -1,5 +1,5 @@
+ # ext/beaker_cache.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/ext/extract.py b/third_party/mako/mako/mako/ext/extract.py
+index 9d33ee1841a..74d067d8495 100644
+--- a/third_party/mako/mako/mako/ext/extract.py
++++ b/third_party/mako/mako/mako/ext/extract.py
+@@ -1,5 +1,5 @@
+ # ext/extract.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/ext/linguaplugin.py b/third_party/mako/mako/mako/ext/linguaplugin.py
+index efb04c70a94..4cce6262b72 100644
+--- a/third_party/mako/mako/mako/ext/linguaplugin.py
++++ b/third_party/mako/mako/mako/ext/linguaplugin.py
+@@ -1,5 +1,5 @@
+ # ext/linguaplugin.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/ext/preprocessors.py b/third_party/mako/mako/mako/ext/preprocessors.py
+index 80403ecdaeb..6855eeb4378 100644
+--- a/third_party/mako/mako/mako/ext/preprocessors.py
++++ b/third_party/mako/mako/mako/ext/preprocessors.py
+@@ -1,5 +1,5 @@
+ # ext/preprocessors.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/ext/pygmentplugin.py b/third_party/mako/mako/mako/ext/pygmentplugin.py
+index 9acbf4cd67a..38d6a71ba04 100644
+--- a/third_party/mako/mako/mako/ext/pygmentplugin.py
++++ b/third_party/mako/mako/mako/ext/pygmentplugin.py
+@@ -1,5 +1,5 @@
+ # ext/pygmentplugin.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/ext/turbogears.py b/third_party/mako/mako/mako/ext/turbogears.py
+index 2ebf0746867..413d9f74021 100644
+--- a/third_party/mako/mako/mako/ext/turbogears.py
++++ b/third_party/mako/mako/mako/ext/turbogears.py
+@@ -1,5 +1,5 @@
+ # ext/turbogears.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/filters.py b/third_party/mako/mako/mako/filters.py
+index af202f3f529..26edd8ee887 100644
+--- a/third_party/mako/mako/mako/filters.py
++++ b/third_party/mako/mako/mako/filters.py
+@@ -1,5 +1,5 @@
+ # mako/filters.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/lexer.py b/third_party/mako/mako/mako/lexer.py
+index bfcf28691a5..527c4b51820 100644
+--- a/third_party/mako/mako/mako/lexer.py
++++ b/third_party/mako/mako/mako/lexer.py
+@@ -1,5 +1,5 @@
+ # mako/lexer.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+@@ -74,11 +74,12 @@ class Lexer:
+             (start, end) = match.span()
+             self.match_position = end + 1 if end == start else end
+             self.matched_lineno = self.lineno
++            lines = re.findall(r"\n", self.text[mp : self.match_position])
+             cp = mp - 1
+-            if cp >= 0 and cp < self.textlength:
+-                cp = self.text[: cp + 1].rfind("\n")
++            while cp >= 0 and cp < self.textlength and self.text[cp] != "\n":
++                cp -= 1
+             self.matched_charpos = mp - cp
+-            self.lineno += self.text[mp : self.match_position].count("\n")
++            self.lineno += len(lines)
+         return match
+ 
+     def parse_until_text(self, watch_nesting, *text):
+diff --git a/third_party/mako/mako/mako/lookup.py b/third_party/mako/mako/mako/lookup.py
+index f7410ce3b1f..7afe242b763 100644
+--- a/third_party/mako/mako/mako/lookup.py
++++ b/third_party/mako/mako/mako/lookup.py
+@@ -1,5 +1,5 @@
+ # mako/lookup.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/parsetree.py b/third_party/mako/mako/mako/parsetree.py
+index c5a12d1d5ef..2135769f069 100644
+--- a/third_party/mako/mako/mako/parsetree.py
++++ b/third_party/mako/mako/mako/parsetree.py
+@@ -1,5 +1,5 @@
+ # mako/parsetree.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/pygen.py b/third_party/mako/mako/mako/pygen.py
+index 57c697931f5..46b0b52ffec 100644
+--- a/third_party/mako/mako/mako/pygen.py
++++ b/third_party/mako/mako/mako/pygen.py
+@@ -1,5 +1,5 @@
+ # mako/pygen.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+@@ -43,15 +43,6 @@ class PythonPrinter:
+         # source lines
+         self.source_map = {}
+ 
+-        self._re_space_comment = re.compile(r"^\s*#")
+-        self._re_space = re.compile(r"^\s*$")
+-        self._re_indent = re.compile(r":[ \t]*(?:#.*)?$")
+-        self._re_compound = re.compile(r"^\s*(if|try|elif|while|for|with)")
+-        self._re_indent_keyword = re.compile(
+-            r"^\s*(def|class|else|elif|except|finally)"
+-        )
+-        self._re_unindentor = re.compile(r"^\s*(else|elif|except|finally).*\:")
+-
+     def _update_lineno(self, num):
+         self.lineno += num
+ 
+@@ -95,8 +86,8 @@ class PythonPrinter:
+ 
+         if (
+             line is None
+-            or self._re_space_comment.match(line)
+-            or self._re_space.match(line)
++            or re.match(r"^\s*#", line)
++            or re.match(r"^\s*$", line)
+         ):
+             hastext = False
+         else:
+@@ -130,12 +121,12 @@ class PythonPrinter:
+         # note that a line can both decrase (before printing) and
+         # then increase (after printing) the indentation level.
+ 
+-        if self._re_indent.search(line):
++        if re.search(r":[ \t]*(?:#.*)?$", line):
+             # increment indentation count, and also
+             # keep track of what the keyword was that indented us,
+             # if it is a python compound statement keyword
+             # where we might have to look for an "unindent" keyword
+-            match = self._re_compound.match(line)
++            match = re.match(r"^\s*(if|try|elif|while|for|with)", line)
+             if match:
+                 # its a "compound" keyword, so we will check for "unindentors"
+                 indentor = match.group(1)
+@@ -146,7 +137,9 @@ class PythonPrinter:
+                 # its not a "compound" keyword.  but lets also
+                 # test for valid Python keywords that might be indenting us,
+                 # else assume its a non-indenting line
+-                m2 = self._re_indent_keyword.match(line)
++                m2 = re.match(
++                    r"^\s*(def|class|else|elif|except|finally)", line
++                )
+                 if m2:
+                     self.indent += 1
+                     self.indent_detail.append(indentor)
+@@ -174,7 +167,7 @@ class PythonPrinter:
+ 
+         # if the current line doesnt have one of the "unindentor" keywords,
+         # return False
+-        match = self._re_unindentor.match(line)
++        match = re.match(r"^\s*(else|elif|except|finally).*\:", line)
+         # if True, whitespace matches up, we have a compound indentor,
+         # and this line has an unindentor, this
+         # is probably good enough
+@@ -200,9 +193,6 @@ class PythonPrinter:
+ 
+         stripspace is a string of space that will be truncated from the
+         start of the line before indenting."""
+-        if stripspace == "":
+-            # Fast path optimization.
+-            return self.indentstring * self.indent + line
+ 
+         return re.sub(
+             r"^%s" % stripspace, self.indentstring * self.indent, line
+diff --git a/third_party/mako/mako/mako/pyparser.py b/third_party/mako/mako/mako/pyparser.py
+index d9b090c6fa1..5c55505ba00 100644
+--- a/third_party/mako/mako/mako/pyparser.py
++++ b/third_party/mako/mako/mako/pyparser.py
+@@ -1,5 +1,5 @@
+ # mako/pyparser.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/template.py b/third_party/mako/mako/mako/template.py
+index 8c70731dc1c..bbbe73cb252 100644
+--- a/third_party/mako/mako/mako/template.py
++++ b/third_party/mako/mako/mako/template.py
+@@ -1,5 +1,5 @@
+ # mako/template.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/mako/testing/fixtures.py b/third_party/mako/mako/mako/testing/fixtures.py
+index 01e996171d1..c9379c0c7f2 100644
+--- a/third_party/mako/mako/mako/testing/fixtures.py
++++ b/third_party/mako/mako/mako/testing/fixtures.py
+@@ -80,16 +80,6 @@ class TemplateTest:
+             output = filters(output)
+         eq_(output, expected)
+ 
+-    def indicates_unbound_local_error(self, rendered_output, unbound_var):
+-        var = f"&#39;{unbound_var}&#39;"
+-        error_msgs = (
+-            # < 3.11
+-            f"local variable {var} referenced before assignment",
+-            # >= 3.11
+-            f"cannot access local variable {var} where it is not associated",
+-        )
+-        return any((msg in rendered_output) for msg in error_msgs)
+-
+ 
+ class PlainCacheImpl(CacheImpl):
+     """Simple memory cache impl so that tests which
+diff --git a/third_party/mako/mako/mako/util.py b/third_party/mako/mako/mako/util.py
+index 5fb683b4f15..74c8b9eb25f 100644
+--- a/third_party/mako/mako/mako/util.py
++++ b/third_party/mako/mako/mako/util.py
+@@ -1,5 +1,5 @@
+ # mako/util.py
+-# Copyright 2006-2022 the Mako authors and contributors <see AUTHORS file>
++# Copyright 2006-2021 the Mako authors and contributors <see AUTHORS file>
+ #
+ # This module is part of Mako and is released under
+ # the MIT License: http://www.opensource.org/licenses/mit-license.php
+diff --git a/third_party/mako/mako/setup.cfg b/third_party/mako/mako/setup.cfg
+index bcfefa1b50c..b7272dbaaa4 100644
+--- a/third_party/mako/mako/setup.cfg
++++ b/third_party/mako/mako/setup.cfg
+@@ -8,7 +8,7 @@ url = https://www.makotemplates.org/
+ author = Mike Bayer
+ author_email = mike@zzzcomputing.com
+ license = MIT
+-license_files = LICENSE
++license_file = LICENSE
+ classifiers = 
+ 	Development Status :: 5 - Production/Stable
+ 	License :: OSI Approved :: MIT License
+@@ -69,12 +69,9 @@ tag_build =
+ tag_date = 0
+ 
+ [tool:pytest]
+-addopts = --tb native -v -r fxX -p warnings
++addopts = --tb native -v -r fxX -W error
+ python_files = test/*test_*.py
+ python_classes = *Test
+-filterwarnings = 
+-	error::DeprecationWarning:test
+-	error::DeprecationWarning:mako
+ 
+ [upload]
+ sign = 1
+diff --git a/third_party/mako/mako/test/ext/test_babelplugin.py b/third_party/mako/mako/test/ext/test_babelplugin.py
+index cfe79b62e8a..de3e4610577 100644
+--- a/third_party/mako/mako/test/ext/test_babelplugin.py
++++ b/third_party/mako/mako/test/ext/test_babelplugin.py
+@@ -1,35 +1,26 @@
+ import io
+ import os
+ 
+-import pytest
+-
++from mako.ext.babelplugin import extract
+ from mako.testing.assertions import eq_
+ from mako.testing.config import config
+ from mako.testing.exclusions import requires_babel
+ from mako.testing.fixtures import TemplateTest
+ 
+ 
+-class UsesExtract:
+-    @pytest.fixture(scope="class")
+-    def extract(self):
+-        from mako.ext.babelplugin import extract
+-
+-        return extract
+-
+-
+ @requires_babel
+-class PluginExtractTest(UsesExtract):
+-    def test_parse_python_expression(self, extract):
++class PluginExtractTest:
++    def test_parse_python_expression(self):
+         input_ = io.BytesIO(b'<p>${_("Message")}</p>')
+         messages = list(extract(input_, ["_"], [], {}))
+         eq_(messages, [(1, "_", ("Message"), [])])
+ 
+-    def test_python_gettext_call(self, extract):
++    def test_python_gettext_call(self):
+         input_ = io.BytesIO(b'<p>${_("Message")}</p>')
+         messages = list(extract(input_, ["_"], [], {}))
+         eq_(messages, [(1, "_", ("Message"), [])])
+ 
+-    def test_translator_comment(self, extract):
++    def test_translator_comment(self):
+         input_ = io.BytesIO(
+             b"""
+         <p>
+@@ -52,8 +43,8 @@ class PluginExtractTest(UsesExtract):
+ 
+ 
+ @requires_babel
+-class MakoExtractTest(UsesExtract, TemplateTest):
+-    def test_extract(self, extract):
++class MakoExtractTest(TemplateTest):
++    def test_extract(self):
+         with open(
+             os.path.join(config.template_base, "gettext.mako")
+         ) as mako_tmpl:
+@@ -92,7 +83,7 @@ class MakoExtractTest(UsesExtract, TemplateTest):
+             ]
+         eq_(expected, messages)
+ 
+-    def test_extract_utf8(self, extract):
++    def test_extract_utf8(self):
+         with open(
+             os.path.join(config.template_base, "gettext_utf8.mako"), "rb"
+         ) as mako_tmpl:
+@@ -101,7 +92,7 @@ class MakoExtractTest(UsesExtract, TemplateTest):
+             )
+             assert message == (1, "_", "K\xf6ln", [])
+ 
+-    def test_extract_cp1251(self, extract):
++    def test_extract_cp1251(self):
+         with open(
+             os.path.join(config.template_base, "gettext_cp1251.mako"), "rb"
+         ) as mako_tmpl:
+diff --git a/third_party/mako/mako/test/ext/test_linguaplugin.py b/third_party/mako/mako/test/ext/test_linguaplugin.py
+index 5aafcff541e..ae24f6755a5 100644
+--- a/third_party/mako/mako/test/ext/test_linguaplugin.py
++++ b/third_party/mako/mako/test/ext/test_linguaplugin.py
+@@ -2,6 +2,7 @@ import os
+ 
+ import pytest
+ 
++from mako.ext.linguaplugin import LinguaMakoExtractor
+ from mako.testing.assertions import eq_
+ from mako.testing.config import config
+ from mako.testing.exclusions import requires_lingua
+@@ -18,14 +19,11 @@ class MockOptions:
+ class MakoExtractTest(TemplateTest):
+     @pytest.fixture(autouse=True)
+     def register_lingua_extractors(self):
+-
+         from lingua.extractors import register_extractors
+ 
+         register_extractors()
+ 
+     def test_extract(self):
+-        from mako.ext.linguaplugin import LinguaMakoExtractor
+-
+         plugin = LinguaMakoExtractor({"comment-tags": "TRANSLATOR"})
+         messages = list(
+             plugin(
+diff --git a/third_party/mako/mako/test/test_exceptions.py b/third_party/mako/mako/test/test_exceptions.py
+index be573e6391e..b1930c563e4 100644
+--- a/third_party/mako/mako/test/test_exceptions.py
++++ b/third_party/mako/mako/test/test_exceptions.py
+@@ -173,7 +173,7 @@ ${foobar}
+         )
+ 
+         assert (
+-            '<table class="syntax-highlightedtable">'
++            '<div class="sourceline"><table class="syntax-highlightedtable">'
+             in l.get_template("foo.html").render_unicode()
+         )
+ 
+@@ -274,8 +274,10 @@ ${foobar}
+         html_error = exceptions.html_error_template().render_unicode(
+             error=v, traceback=None
+         )
+-
+-        assert self.indicates_unbound_local_error(html_error, "y")
++        assert (
++            "local variable &#39;y&#39; referenced before assignment"
++            in html_error
++        )
+ 
+     def test_tback_trace_from_py_file(self):
+         t = self._file_template("runtimeerr.html")
+@@ -285,7 +287,10 @@ ${foobar}
+         except:
+             html_error = exceptions.html_error_template().render_unicode()
+ 
+-        assert self.indicates_unbound_local_error(html_error, "y")
++        assert (
++            "local variable &#39;y&#39; referenced before assignment"
++            in html_error
++        )
+ 
+     def test_code_block_line_number(self):
+         l = TemplateLookup()
+diff --git a/third_party/mako/mako/test/test_template.py b/third_party/mako/mako/test/test_template.py
+index 6e7a3098009..fc1aecad5bf 100644
+--- a/third_party/mako/mako/test/test_template.py
++++ b/third_party/mako/mako/test/test_template.py
+@@ -940,15 +940,18 @@ class ControlTest(TemplateTest):
+     %endfor
+ """
+         )
+-        assert result_lines(
+-            t.render(
+-                y=[
+-                    {"test": "one"},
+-                    {"foo": "bar"},
+-                    {"foo": "bar", "test": "two"},
+-                ]
++        assert (
++            result_lines(
++                t.render(
++                    y=[
++                        {"test": "one"},
++                        {"foo": "bar"},
++                        {"foo": "bar", "test": "two"},
++                    ]
++                )
+             )
+-        ) == ["yes x has test", "no x does not have test", "yes x has test"]
++            == ["yes x has test", "no x does not have test", "yes x has test"]
++        )
+ 
+     def test_blank_control_1(self):
+         self._do_memory_test(
+diff --git a/third_party/mako/mako/tox.ini b/third_party/mako/mako/tox.ini
+index 6f7cefdbc7d..d8edd3cb03d 100644
+--- a/third_party/mako/mako/tox.ini
++++ b/third_party/mako/mako/tox.ini
+@@ -30,7 +30,7 @@ deps=
+       pydocstyle<4.0.0
+       # used by flake8-rst-docstrings
+       pygments
+-      black==22.3.0
++      black==21.9b0
+ commands =
+     flake8 ./mako/ ./test/ setup.py --exclude test/templates,test/foo  {posargs}
+     black --check .
+-- 
+2.34.1
+

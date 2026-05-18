@@ -1,0 +1,31 @@
+Description: Explicitly declare that xkb_keymap_key_get_mods_for_level isn't available in focal,
+  because compilation fails otherwise (even though it shouldn't because of the weak declaration):
+  error: use of undeclared identifier 'xkb_keymap_key_get_mods_for_level'; did you mean 'xkb_keymap_key_get_syms_by_level'?
+Author: Olivier Tilloy <olivier.tilloy@canonical.com>
+
+--- a/ui/events/ozone/layout/xkb/xkb_keyboard_layout_engine.cc
++++ b/ui/events/ozone/layout/xkb/xkb_keyboard_layout_engine.cc
+@@ -34,10 +34,7 @@
+ // xkb_keymap_key_get_mods_for_level is relatively new (introduced in ver 1.0,
+ // Sep 6, 2020), thus it is not available on some platform, such as Ubuntu
+ // 18.04, which we still supports.
+-// Thus declare the function as weak here, so we can check the availability on
+-// runtime.
+-extern "C" __attribute__((weak)) decltype(
+-    xkb_keymap_key_get_mods_for_level) xkb_keymap_key_get_mods_for_level;
++size_t (*xkb_keymap_key_get_mods_for_level)(struct xkb_keymap*, xkb_keycode_t, xkb_layout_index_t, xkb_level_index_t, xkb_mod_mask_t*, size_t) = nullptr;
+ 
+ namespace ui {
+ 
+--- a/ui/events/ozone/layout/xkb/xkb_keyboard_layout_engine_unittest.cc
++++ b/ui/events/ozone/layout/xkb/xkb_keyboard_layout_engine_unittest.cc
+@@ -18,8 +18,7 @@
+ #include "ui/events/keycodes/keyboard_code_conversion.h"
+ #include "ui/events/ozone/layout/scoped_keyboard_layout_engine.h"
+ 
+-extern "C" __attribute__((weak)) decltype(
+-    xkb_keymap_key_get_mods_for_level) xkb_keymap_key_get_mods_for_level;
++void* xkb_keymap_key_get_mods_for_level = nullptr;
+ 
+ namespace ui {
+ 

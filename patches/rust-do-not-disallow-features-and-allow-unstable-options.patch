@@ -1,0 +1,37 @@
+--- a/build/config/compiler/BUILD.gn
++++ b/build/config/compiler/BUILD.gn
+@@ -1205,5 +1205,5 @@
+ # additional command line flags.
+ config("disallow_unstable_features") {
+-  rustflags = [ "-Zallow-features=" ]
++  rustflags = []
+ }
+
+
+
+This does nothing if no edition is specified because it's surprisingly difficult
+to use += and = correctly with lists that can be defined or undefined.
+--- a/build/rust/BUILD.gn
++++ b/build/rust/BUILD.gn
+@@ -12,17 +12,17 @@
+ if (toolchain_has_rust) {
+   config("edition_2024") {
+-    rustflags = [ "--edition=2024" ]
++    rustflags = [ "--edition=2024", "-Zunstable-options" ]
+   }
+ 
+   config("edition_2021") {
+-    rustflags = [ "--edition=2021" ]
++    rustflags = [ "--edition=2021", "-Zunstable-options" ]
+   }
+ 
+   config("edition_2018") {
+-    rustflags = [ "--edition=2018" ]
++    rustflags = [ "--edition=2018", "-Zunstable-options" ]
+   }
+ 
+   config("edition_2015") {
+-    rustflags = [ "--edition=2015" ]
++    rustflags = [ "--edition=2015", "-Zunstable-options" ]
+   }
+ 
