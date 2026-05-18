@@ -2,9 +2,10 @@ Source: mythicsurf
 Section: web
 Priority: optional
 Maintainer: Studio Hastag <contact@hastag.fr>
-Standards-Version: 3.9.5
+Standards-Version: 4.7.0
 Build-Depends:
-    debhelper (>= 9),
+    debhelper (>= 13),
+    debhelper-compat (>= 13),
     quilt,
     wget,
     make,
