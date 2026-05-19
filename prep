@@ -50,7 +50,7 @@ new_section("Copying in preferences and bookmarks")
 
 exit_if_fail_os_makedirs("%s/etc/chromium" % STAGING_DIR)
 
-codename = os.environ["MINT_CODENAME"]
+codename = os.environ["MYTHIC_CODENAME"]
 # exit_if_fail_os_system("cp data/master_preferences %s/etc/chromium" % STAGING_DIR)
 exit_if_fail_os_system("sed s/@CODENAME@/%s/ data/master_preferences > %s/etc/chromium/master_preferences" % (codename, STAGING_DIR))
 

@@ -10,11 +10,11 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get --yes install wget gnupg locales unzip libfile-fcntllock-perl equivs software-properties-common
 
 # Set locale
-RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+RUN echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen
 RUN locale-gen
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG fr_FR.UTF-8
+ENV LANGUAGE fr_FR:fr
+ENV LC_ALL fr_FR.UTF-8
 
 ###################################
 # Set up repositories
