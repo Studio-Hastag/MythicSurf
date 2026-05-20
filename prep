@@ -51,7 +51,6 @@ new_section("Copying in preferences and bookmarks")
 exit_if_fail_os_makedirs("%s/etc/mythicsurf" % STAGING_DIR)
 
 codename = os.environ["MYTHIC_CODENAME"]
-# exit_if_fail_os_system("cp data/master_preferences %s/etc/mythicsurf" % STAGING_DIR)
 exit_if_fail_os_system("sed s/@CODENAME@/%s/ data/master_preferences > %s/etc/mythicsurf/master_preferences" % (codename, STAGING_DIR))
 
 exit_if_fail_os_makedirs("%s/usr/share/mythicsurf" % STAGING_DIR)
@@ -60,17 +59,24 @@ exit_if_fail_os_system("cp data/initial_bookmarks.html %s/usr/share/mythicsurf" 
 exit_if_fail_os_makedirs("%s/usr/share/applications" % STAGING_DIR)
 exit_if_fail_os_system("cp data/mythicsurf-browser.desktop %s/usr/share/applications" % STAGING_DIR)
 
+#####################################################################
+# Install MythicSurf icons (custom icons from data/icons/)
+#####################################################################
+new_section("Installing MythicSurf icons")
+
+icons_src = os.path.join(curdir, "data", "icons", "hicolor")
+
 with exit_if_exception():
-    src_icons_path = "%s/chrome/app/theme/chromium" % CHROME_SOURCE_DIR
-    for file in os.listdir(src_icons_path):
-        match = re.search(r'(?:product_logo_)(\d+)(?:.png)', file)
-        if match:
-            size = match.group(1)
-            d = "%s/usr/share/icons/hicolor/%sx%s/apps" % (STAGING_DIR, size, size)
-            exit_if_fail_os_makedirs(d, exist_ok=True)
-            origin_path = os.path.join(src_icons_path, file)
-            target_path = os.path.join(d, "mythicsurf.png")
-            exit_if_fail_os_system("cp %s %s" % (origin_path, target_path))
+    for root, dirs, files in os.walk(icons_src):
+        for f in files:
+            if f.endswith(".png") or f.endswith(".svg"):
+                rel = os.path.relpath(root, icons_src)
+                dest = os.path.join(STAGING_DIR, "usr/share/icons/hicolor", rel, "apps")
+                exit_if_fail_os_makedirs(dest, exist_ok=True)
+                src_file = os.path.join(root, f)
+                ext = f.split(".")[-1]
+                dest_file = os.path.join(dest, "mythicsurf." + ext)
+                exit_if_fail_os_system("cp %s %s" % (src_file, dest_file))
 
 #####################################################################
 # Apply ubuntu patches
@@ -82,10 +88,9 @@ if IMAGE_32BIT:
     series_file += ".i386"
 
 os.chdir(CHROME_SOURCE_DIR)
-#exit_if_fail_os_system("QUILT_SERIES=%s QUILT_PATCHES=%s quilt push -a" % (os.path.join(curdir, "patches", series_file),
-#                                                                           os.path.join(curdir, "patches")))
-exit_if_fail_os_system("QUILT_SERIES=%s QUILT_PATCHES=%s quilt push -a --refresh" % (os.path.join(curdir, "patches", series_file),
-                                                                                     os.path.join(curdir, "patches")))
+exit_if_fail_os_system("QUILT_SERIES=%s QUILT_PATCHES=%s quilt push -a --refresh" %
+                       (os.path.join(curdir, "patches", series_file),
+                        os.path.join(curdir, "patches")))
 
 #####################################################################
 # Search modifications

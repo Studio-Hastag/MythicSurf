@@ -1,252 +1,39 @@
 {
   "int_variables": {
-
-    "kMaxPrepopulatedEngineID": 115,
-    "kCurrentDataVersion": 178
+    "kMaxPrepopulatedEngineID": 200,
+    "kCurrentDataVersion": 1
   },
 
   "elements": {
-    "yahoo_ar": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
+
+    "mythicsurf": {
+      "type": "SEARCH_ENGINE_OTHER",
+      "id": 100,
+      "name": "MythicSurf Search",
+      "keyword": "mythicsurf",
+      "favicon_url": "https://mythicos.hastag.fr/static/mythicos/favicon.ico",
+      "search_url": "https://mythicos.hastag.fr/search?q={searchTerms}",
+      "suggest_url": ""
     },
-    "yahoo_de": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_au": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_br": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_ca": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_cl": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_dk": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_es": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_fi": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_fr": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_gb": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_tw": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_id": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_in": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_it": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_mx": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_malaysia": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_nl": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_no": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_se": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_th": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
-    "yahoo_vi": {
-      "type": "SEARCH_ENGINE_YAHOO",
-      "id": 2,
-      "name": "Yahoo!",
-      "search_url": "https://yssads.ddc.com/yhs.php?c=19111&surl=https://intl.linuxmint.com&kw={searchTerms}",
-      "suggest_url": "https://ff.search.yahoo.com/gossip?output=fxjson&amp;command={searchTerms}",
-      "favicon_url": "https://search.yahoo.com/favicon.ico",
-      "keyword": "yahoo"
-    },
+
     "duckduckgo": {
       "type": "SEARCH_ENGINE_DUCKDUCKGO",
       "id": 92,
       "name": "DuckDuckGo",
-      "search_url": "https://duckduckgo.com/?t=lm&q={searchTerms}",
-      "suggest_url": "https://ac.duckduckgo.com/ac/?t=lm&q={searchTerms}&type=list",
+      "keyword": "ddg",
       "favicon_url": "https://duckduckgo.com/favicon.ico",
-      "keyword": "ddg"
+      "search_url": "https://duckduckgo.com/?q={searchTerms}",
+      "suggest_url": "https://ac.duckduckgo.com/ac/?q={searchTerms}&type=list"
     },
 
     "google": {
-      "name": "Google",
-      "keyword": "google.com",
-      "favicon_url": "https://www.google.com/images/branding/product/ico/googleg_alldp.ico",
-      "search_url": "{google:baseURL}search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:language}{google:prefetchSource}{google:searchClient}{google:sourceId}{google:contextualSearchVersion}ie={inputEncoding}",
-      "suggest_url": "{google:baseSuggestURL}search?{google:searchFieldtrialParameter}client={google:suggestClient}&gs_ri={google:suggestRid}&xssi=t&q={searchTerms}&{google:inputType}{google:omniboxFocusType}{google:cursorPosition}{google:currentPageUrl}{google:pageClassification}{google:clientCacheTimeToLive}{google:searchVersion}{google:sessionToken}{google:prefetchQuery}sugkey={google:suggestAPIKeyParameter}",
-      "image_url": "{google:baseSearchByImageURL}upload",
-      "image_translate_url": "{google:baseSearchByImageURL}upload?filtertype=tr&{imageTranslateSourceLocale}{imageTranslateTargetLocale}",
-      "contextual_search_url": "{google:baseURL}_/contextualsearch?{google:contextualSearchVersion}{google:contextualSearchContextData}",
-      "image_url_post_params": "encoded_image={google:imageThumbnail},image_url={google:imageURL},sbisrc={google:imageSearchSource},original_width={google:imageOriginalWidth},original_height={google:imageOriginalHeight},processed_image_dimensions={google:processedImageDimensions}",
-      "image_translate_source_language_param_key": "sourcelang",
-      "image_translate_target_language_param_key": "targetlang",
-      "search_intent_params": ["si", "gs_ssp"],
-      "alternate_urls": [
-        "{google:baseURL}#q={searchTerms}",
-        "{google:baseURL}search#q={searchTerms}",
-        "{google:baseURL}webhp#q={searchTerms}",
-        "{google:baseURL}s#q={searchTerms}",
-        "{google:baseURL}s?q={searchTerms}"
-      ],
       "type": "SEARCH_ENGINE_GOOGLE",
-      "preconnect_to_search_url" : "ALLOWED",
-      "prefetch_likely_navigations" : "ALLOWED",
-      "id": 1
+      "id": 1,
+      "name": "Google",
+      "keyword": "google",
+      "favicon_url": "https://www.google.com/favicon.ico",
+      "search_url": "https://www.google.com/search?q={searchTerms}",
+      "suggest_url": "https://www.google.com/complete/search?client=chrome&q={searchTerms}"
     }
   },
 
