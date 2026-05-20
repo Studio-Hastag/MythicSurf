@@ -20,4 +20,3 @@ BUILD_OUTPUT_DIR = "%s/debian/build" % curdir
 STAGING_DIR = "%s/debian/tmp" % curdir
 IMAGE_CODENAME = os.environ["MYTHIC_CODENAME"]
 IMAGE_32BIT = platform.architecture()[0] == "32bit"
-
