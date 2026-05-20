@@ -93,7 +93,7 @@ new_section("Build finished: %s (took %s)" % (end.isoformat(), elapsed))
 # Install binary and deps to tree
 new_section("Installing files to tree")
 
-exit_if_fail_os_makedirs("%s/usr/lib/chromium" % STAGING_DIR)
+exit_if_fail_os_makedirs("%s/usr/lib/mythicsurf" % STAGING_DIR)
 
 lib_files = [
     "chrome",
@@ -120,17 +120,17 @@ if os.path.exists("%s/libminigbm.so" % BUILD_OUTPUT_DIR):
     lib_files.append("libminigbm.so")
 
 for f in lib_files:
-    exit_if_fail_os_system("cp %s/%s %s/usr/lib/chromium" % (BUILD_OUTPUT_DIR, f, STAGING_DIR))
+    exit_if_fail_os_system("cp %s/%s %s/usr/lib/mythicsurf" % (BUILD_OUTPUT_DIR, f, STAGING_DIR))
 
 # This needs to end up the same name as the /usr/bin file, or else man chromium will work, but
 # not chromium --help.
-exit_if_fail_os_system("mv %s/usr/lib/chromium/chrome %s/usr/lib/chromium/chromium" % (STAGING_DIR, STAGING_DIR))
+exit_if_fail_os_system("mv %s/usr/lib/mythicsurf/chrome %s/usr/lib/mythicsurf/mythicsurf" % (STAGING_DIR, STAGING_DIR))
 
-# Link binary to /usr/bin/chromium
+# Link binary to /usr/bin/mythicsurf
 exit_if_fail_os_makedirs("%s/usr/bin" % STAGING_DIR)
-exit_if_fail_os_system("cp %s/data/chromium.bin.%s %s/usr/bin/chromium" % (curdir, IMAGE_CODENAME, STAGING_DIR))
+exit_if_fail_os_system("cp %s/data/mythicsurf.bin.%s %s/usr/bin/mythicsurf" % (curdir, IMAGE_CODENAME, STAGING_DIR))
 exit_if_fail_os_system("cp %s/chromedriver %s/usr/bin/" % (BUILD_OUTPUT_DIR, STAGING_DIR))
-exit_if_fail_os_system("chmod +x %s/usr/bin/chromium" % STAGING_DIR)
+exit_if_fail_os_system("chmod +x %s/usr/bin/mythicsurf" % STAGING_DIR)
 exit_if_fail_os_system("chmod +x %s/usr/bin/chromedriver" % STAGING_DIR)
 
 # Apparmor profile (wilma)--------------------- supplied by ubuntu-system-adjustments now.
@@ -138,20 +138,20 @@ exit_if_fail_os_system("chmod +x %s/usr/bin/chromedriver" % STAGING_DIR)
 #    exit_if_fail_os_makedirs("%s/etc/apparmor.d" % STAGING_DIR)
 #    exit_if_fail_os_system("cp %s/data/chromium.apparmor %s/etc/apparmor.d/mint-chromium" % (curdir, STAGING_DIR))
 
-exit_if_fail_os_system("cp %s/chrome_sandbox %s/usr/lib/chromium/chrome-sandbox" % (BUILD_OUTPUT_DIR, STAGING_DIR))
+exit_if_fail_os_system("cp %s/chrome_sandbox %s/usr/lib/mythicsurf/mythicsurf-sandbox" % (BUILD_OUTPUT_DIR, STAGING_DIR))
 
 # Locales
 new_section("Locale stuff")
 
-exit_if_fail_os_makedirs("%s/usr/lib/chromium/locales" % STAGING_DIR)
-exit_if_fail_os_system("cp %s/locales/*.pak %s/usr/lib/chromium/locales/" % (BUILD_OUTPUT_DIR, STAGING_DIR))
+exit_if_fail_os_makedirs("%s/usr/lib/mythicsurf/locales" % STAGING_DIR)
+exit_if_fail_os_system("cp %s/locales/*.pak %s/usr/lib/mythicsurf/locales/" % (BUILD_OUTPUT_DIR, STAGING_DIR))
 
 # Manpage
 exit_if_fail_os_makedirs("%s/usr/share/man/man1" % STAGING_DIR)
 exit_if_fail_os_system('sed \
-              -e "s/@@PACKAGE@@/chromium/g" \
-              -e "s/@@MENUNAME@@/chromium/g" \
+              -e "s/@@PACKAGE@@/mythicsurf/g" \
+              -e "s/@@MENUNAME@@/mythicsurf/g" \
               %s/chrome/app/resources/manpage.1.in \
-                  > %s/usr/share/man/man1/chromium.1' % (CHROME_SOURCE_DIR, STAGING_DIR)
+                  > %s/usr/share/man/man1/mythicsurf.1' % (CHROME_SOURCE_DIR, STAGING_DIR)
 )
-exit_if_fail_os_system("gzip -9n -f %s/usr/share/man/man1/chromium.1" % STAGING_DIR)
+exit_if_fail_os_system("gzip -9n -f %s/usr/share/man/man1/mythicsurf.1" % STAGING_DIR)

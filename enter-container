@@ -1,21 +1,21 @@
 #!/bin/bash
+set -e
 
-# Build container
-docker build --tag chromium -f chromium.dockerfile  .
+IMAGE_NAME="mythicsurf"
+CONTAINER_NAME="mythicsurf"
+MOUNT_DIR="/VOLUME"
 
-# Delete instance
+# Build container image
+docker build --tag "${IMAGE_NAME}" -f chromium.dockerfile .
+
+# Delete previous instance if it exists
 echo "STOPPING INSTANCE"
-docker stop chromium
-docker rm chromium
+docker rm -f "${CONTAINER_NAME}" 2>/dev/null || true
 
 # Create instance
 echo "CREATING INSTANCE"
-docker run -it -v `pwd`:/VOLUME --name chromium -h chromium -d chromium
+docker run -it -v "$(pwd):${MOUNT_DIR}" --name "${CONTAINER_NAME}" -h "${CONTAINER_NAME}" -d "${IMAGE_NAME}"
 
 # Access instance
-echo "STARTING INSTANCE"
-docker start chromium
-
 echo "ACCESSING INSTANCE"
-docker exec -it chromium /bin/bash
-
+docker exec -it "${CONTAINER_NAME}" /bin/bash

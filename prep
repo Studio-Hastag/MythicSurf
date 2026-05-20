@@ -48,17 +48,17 @@ exit_if_fail_os_system("tar -xf %s.tar.xz" % SOURCE_TARNAME)
 #####################################################################
 new_section("Copying in preferences and bookmarks")
 
-exit_if_fail_os_makedirs("%s/etc/chromium" % STAGING_DIR)
+exit_if_fail_os_makedirs("%s/etc/mythicsurf" % STAGING_DIR)
 
-codename = os.environ["MINT_CODENAME"]
-# exit_if_fail_os_system("cp data/master_preferences %s/etc/chromium" % STAGING_DIR)
-exit_if_fail_os_system("sed s/@CODENAME@/%s/ data/master_preferences > %s/etc/chromium/master_preferences" % (codename, STAGING_DIR))
+codename = os.environ["MYTHIC_CODENAME"]
+# exit_if_fail_os_system("cp data/master_preferences %s/etc/mythicsurf" % STAGING_DIR)
+exit_if_fail_os_system("sed s/@CODENAME@/%s/ data/master_preferences > %s/etc/mythicsurf/master_preferences" % (codename, STAGING_DIR))
 
-exit_if_fail_os_makedirs("%s/usr/share/chromium" % STAGING_DIR)
-exit_if_fail_os_system("cp data/initial_bookmarks.html %s/usr/share/chromium" % STAGING_DIR)
+exit_if_fail_os_makedirs("%s/usr/share/mythicsurf" % STAGING_DIR)
+exit_if_fail_os_system("cp data/initial_bookmarks.html %s/usr/share/mythicsurf" % STAGING_DIR)
 
 exit_if_fail_os_makedirs("%s/usr/share/applications" % STAGING_DIR)
-exit_if_fail_os_system("cp data/chromium-browser.desktop %s/usr/share/applications" % STAGING_DIR)
+exit_if_fail_os_system("cp data/mythicsurf-browser.desktop %s/usr/share/applications" % STAGING_DIR)
 
 with exit_if_exception():
     src_icons_path = "%s/chrome/app/theme/chromium" % CHROME_SOURCE_DIR
@@ -69,7 +69,7 @@ with exit_if_exception():
             d = "%s/usr/share/icons/hicolor/%sx%s/apps" % (STAGING_DIR, size, size)
             exit_if_fail_os_makedirs(d, exist_ok=True)
             origin_path = os.path.join(src_icons_path, file)
-            target_path = os.path.join(d, "chromium.png")
+            target_path = os.path.join(d, "mythicsurf.png")
             exit_if_fail_os_system("cp %s %s" % (origin_path, target_path))
 
 #####################################################################

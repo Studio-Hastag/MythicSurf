@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Enable GPU rasterization.
+export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --enable-gpu-rasterization"
+
+# Disable pinging (this has to do with updates)
+export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --disable-pings"
+
+# Disable hyperlink auditing pings
+export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --no-pings"
+
+# Add necessary flags for VAAPI video en/decoding
+CHROMIUM_VAAPI_FLAGS='--use-gl=angle --use-angle=gl --enable-features=VaapiVideoDecoder,VaapiVideoEncoder,VaapiVideoDecodeLinuxGL,UseChromeOSDirectVideoDecoder'
+CHROMIUM_ONECOPY_FLAGS="--enable-native-gpu-memory-buffers"
+CHROMIUM_OZONE_FLAGS="--ozone-platform-hint=auto"
+
+CHROMIUM_FLAGS="$CHROMIUM_OZONE_FLAGS $CHROMIUM_VAAPI_FLAGS $CHROMIUM_ONECOPY_FLAGS $CHROMIUM_FLAGS"
+
+# GlobalVaapiLock : webRTC optimization
+CHROMIUM_FLAGS="--disable-features=TFLiteLanguageDetectionEnabled,GlobalVaapiLock $CHROMIUM_FLAGS"
+
+# About page version info.
+export CHROME_VERSION_EXTRA="for Linux Mint"
+
+
+WANT_TEMP_PROFILE=0
+for arg in "$@"; do
+  shift
+  if [ "$arg" = "--temp-profile" ]; then
+    WANT_TEMP_PROFILE=1
+    continue
+  fi
+  set -- "$@" "$arg"
+done
+
+if [ $WANT_TEMP_PROFILE -eq 0 ] ; then
+  exec /usr/lib/mythicsurf/mythicsurf $CHROMIUM_FLAGS "$@"
+else
+  TEMP_PROFILE=$(mktemp -d)
+  trap "rm -rf $TEMP_PROFILE" EXIT
+  # we can't exec here as we need to clean-up the temporary profile
+  /usr/lib/mythicsurf/mythicsurf $CHROMIUM_FLAGS --user-data-dir=$TEMP_PROFILE --no-default-browser-check --no-first-run "$@"
+fi
