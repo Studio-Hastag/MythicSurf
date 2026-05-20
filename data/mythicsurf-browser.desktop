@@ -1,0 +1,38 @@
+[Desktop Entry]
+Version=1.0
+Name=Navigateur Web MythicSurf
+Name[fr]=Navigateur Web MythicSurf
+
+GenericName=Web Browser
+GenericName[fr]=Navigateur Web
+
+Comment=Access the Internet
+Comment[fr]=Accéder à Internet
+
+Exec=mythicsurf %U
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=mythicsurf
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/pdf;
+StartupNotify=true
+StartupWMClass=mythicsurf
+Actions=new-window;Incognito;TempProfile;
+X-AppInstall-Package=mythicsurf-browser
+Name[fr_FR]=mythicsurf-browser.desktop
+
+[Desktop Action new-window]
+Name=New Window
+Name[fr]=Nouvelle fenêtre
+Exec=mythicsurf
+
+[Desktop Action Incognito]
+Name=New Incognito Window
+Name[fr]=Nouvelle fenêtre en mode navigation privée
+Exec=mythicsurf --incognito
+
+[Desktop Action TempProfile]
+Name=New Window with a Temporary Profile
+Name[fr]=Nouvelle fenêtre avec un profil temporaire
+Exec=mythicsurf --temp-profile

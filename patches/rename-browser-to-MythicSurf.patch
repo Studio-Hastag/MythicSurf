@@ -1,0 +1,30 @@
+Description: Rename Chromium browser branding to MythicSurf
+Author: MythicOS Team
+Forwarded: not-needed
+
+Index: chromium-148.0.0.0/chrome/common/chrome_version.cc
+===================================================================
+--- chromium-148.0.0.0.orig/chrome/common/chrome_version.cc
++++ chromium-148.0.0.0/chrome/common/chrome_version.cc
+@@ -20,7 +20,7 @@
+ 
+ const char kChromeVersion[] = CHROME_VERSION_STRING;
+ 
+-const char kChromeProduct[] = "Chromium";
++const char kChromeProduct[] = "MythicSurf";
+
+ const char kChromeMajorVersion[] = CHROME_VERSION_MAJOR_STRING;
+ const char kChromeBuildVersion[] = CHROME_VERSION_BUILD_STRING;
+Index: chromium-148.0.0.0/chrome/common/chrome_paths.cc
+===================================================================
+--- chromium-148.0.0.0.orig/chrome/common/chrome_paths.cc
++++ chromium-148.0.0.0/chrome/common/chrome_paths.cc
+@@ -50,7 +50,7 @@
+ 
+ // The name of the product.
+-const char kBrowserProcessName[] = "chromium";
++const char kBrowserProcessName[] = "mythicsurf";
+ 
+ // The name of the browser executable.
+-const char kBrowserAppName[] = "Chromium";
++const char kBrowserAppName[] = "MythicSurf";

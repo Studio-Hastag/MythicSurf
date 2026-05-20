@@ -22,8 +22,8 @@ Index: chromium-135.0.7049.52/chrome/browser/first_run/first_run_internal_linux.
 -  }
 -
 -  return installer::InitialPreferences::Path(dir_exe);
-+    // Patched for Linux Mint
-+    return base::FilePath("/etc/chromium/master_preferences");
++    // Patched for MythicOS
++    return base::FilePath("/etc/mythicsurf/master_preferences");
  }
  
  }  // namespace internal

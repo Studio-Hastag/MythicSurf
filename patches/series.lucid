@@ -1,6 +1,3 @@
-#build-script-fix-bootstrap-targets.patch
-#build-script-predownload-pgo-training-source.patch
-#clang-build-only-needed-targets.patch
 closure-compiler-use-system-wide-java.patch
 define__libc_malloc.patch
 master-preferences.patch
@@ -13,28 +10,9 @@ widevine-other-locations
 log-video-decoder.patch
 angle-use-pkg-config.patch
 VAEncSequenceParameterBufferAV1.patch
-
-
-
 no-include-skia-dawn-commit-hash.patch
-
 rust-undefined-symbols.patch
-#rust-unstable-feature-is-multiple-of.patch
 rust-do-not-disallow-features-and-allow-unstable-options.patch
-
-
-
-
-
-# Normally chrome only sets the region at first run.
-# Instead check LANG at startup.
-mint-use-lang-for-region-code.patch
-#fix-engine-icon-entries.patch
-#remove-generated-marketing-snippets.patch
+use-lang-for-region-code.patch
 force-gtk3-in-gnome.patch
-
-
-
-
-linux_seccomp.patch
-
+rename-browser-to-MythicSurf.patch
