@@ -6,7 +6,7 @@ CONTAINER_NAME="mythicsurf"
 MOUNT_DIR="/VOLUME"
 
 # Build container image
-docker build --tag "${IMAGE_NAME}" -f chromium.dockerfile .
+docker build --tag "${IMAGE_NAME}" -f mythicsurf.dockerfile .
 
 # Delete previous instance if it exists
 echo "STOPPING INSTANCE"
